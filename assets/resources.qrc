@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="ecriture.txt">txt/ecriture.txt</file>
+        <file alias="faouz.jpg">images/faouz.jpg</file>
+        <file alias="faouzi.jpg">images/faouzi.jpg</file>
+        <file alias="faouzii.jpg">images/faouzii.jpg</file>
+        <file alias="morti.gif">images/morti.gif</file>
+        <file alias="cra_logo.png">images/cra_logo.png</file>
+        <file alias="acem_logo.jpeg">images/acem_logo.jpeg</file>
+        <file alias="tr_ar.ts">lang/LevelManager_ar.ts</file>
+        <file alias="tr_es.ts">lang/LevelManager_es.ts</file>
+        <file alias="tr_fr_FR.ts">lang/LevelManager_fr_FR.ts</file>
+    </qresource>
+</RCC>
