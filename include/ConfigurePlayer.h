@@ -4,15 +4,18 @@
 #include "BoxContainer.h"
 #include "ui_/ui_ConfigurePlayer.h"
 
-namespace Ui {
+namespace Ui
+{
     class ConfigurePlayer;
 }
 
-class ConfigurePlayer: public QWidget {
+class ConfigurePlayer: public QWidget
+{
   Q_OBJECT
   public slots:
     void setParentTabName(QString const &a_groupName);
     void setPicture(QString const &string);
+    void resetToDefault();
 
   public:
     explicit ConfigurePlayer(QTabWidget* parent = nullptr, int index = -1);
@@ -28,12 +31,12 @@ class ConfigurePlayer: public QWidget {
     QStringList bkpNamesForQuickEdit;
 
     void setupAddedButton();
-    QList<QPushButton*> allButtons(void) const;
     void handle_textEdited(QString const &newText, int index);
     void connect_fieldsEditing(QLineEdit* lineEdit, int index);
     void setUp_lineEdit_Added();
     void setGroupName(const QString &newText, QLabel* list);
     void backupLabelValues();
+    void clearLineEditField() const;
 };
 
 #endif // CONFIGUREPLAYER_H

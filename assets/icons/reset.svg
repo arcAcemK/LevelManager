@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="16px"
+   height="16px"
+   viewBox="0 0 24 24"
+   id="svg4"
+   sodipodi:docname="reset.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata10">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="746"
+     id="namedview6"
+     showgrid="false"
+     inkscape:zoom="14.75"
+     inkscape:cx="8"
+     inkscape:cy="8"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <path
+     d="m 10.810059,4.0987949 c 2.027743,-0.3053829 4.163276,0.1524388 5.941279,1.4649958 A 8,8 0 0 1 18.436209,16.751338 8,8 0 0 1 7.2486623,18.436209 C 4.2477797,16.220898 3.2601922,12.322274 4.5931784,9.0180722 L 6.2665928,10.25342 c -0.7241157,2.361558 0.070091,5.023613 2.1699039,6.573737 A 6,6 0 0 0 16.827157,15.563503 6,6 0 0 0 15.563503,7.172843 C 14.22799,6.1869405 12.627488,5.863066 11.11123,6.098569 L 11.789391,10.601557 6.1577079,6.4441361 10.315128,0.812453 Z"
+     id="path2"
+     style="fill:#011615;fill-opacity:1"
+     inkscape:connector-curvature="0" />
+</svg>

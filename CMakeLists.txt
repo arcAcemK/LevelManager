@@ -61,5 +61,4 @@ else ()
     qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 endif ()
 
-message(" Here QmFiles : ${QM_FILES} ")
 target_link_libraries(LevelManager PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)

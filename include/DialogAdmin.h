@@ -11,35 +11,35 @@
 #include "ui_/ui_DialogAdmin.h"
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class DialogAdmin; }
+namespace Ui
+{
+    class DialogAdmin;
+}
 QT_END_NAMESPACE
 
-class DialogAdmin : public QDialog {
-Q_OBJECT
+class DialogAdmin: public QDialog
+{
+  Q_OBJECT
 
-public:
-    DialogAdmin(QWidget *parent = nullptr);
+  public:
+    DialogAdmin(QWidget* parent = nullptr);
 
     ~DialogAdmin();
 
-public slots:
-
+  public slots:
     void handle_textChanged(const QString &);
-
+    void resetEveryField();
     void openQuestionFile();
-
     void passNext();
-
     void loadUserInterface();
 
-    void resetEveryField();
-
-private:
-    Ui::DialogAdmin *ui;
+  private:
+    Ui::DialogAdmin* ui;
     QString pathToFile;
-    QFile *questionFile;
-    QTextStream *fileManip;
-    QVector<BoxContainer *> m_boxContainer;
+    QFile* questionFile;
+    //QTextStream* fileManip;
+    int section = 0;
+    QVector<BoxContainer*> m_boxContainer;
 
     void install_default_event_handler();
 

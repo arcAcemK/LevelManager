@@ -1,7 +1,8 @@
 #include "../include/DialogAdmin.h"
 
 DialogAdmin::DialogAdmin(QWidget* parent)
-        : QDialog(parent), ui(new Ui::DialogAdmin) {
+        : QDialog(parent), ui(new Ui::DialogAdmin)
+{
     ui->setupUi(this);
     ui->required_label->setHidden(false);
     ui->nextBtn->setHidden(true);
@@ -17,63 +18,73 @@ DialogAdmin::DialogAdmin(QWidget* parent)
     acemLogo.load(":/acem_logo.jpeg");
     acemLogo = acemLogo.scaled(icon_size, icon_size);
     ui->acemLabel->setPixmap(acemLogo);
+
+    ui->resetBtn->setIcon(QIcon(":/reset.svg"));
 }
 
-void DialogAdmin::install_default_event_handler() {
-    connect(ui->organiserField, &QLineEdit::textChanged, this,
-            &DialogAdmin::handle_textChanged);
-    connect(ui->competField, &QLineEdit::textChanged, this,
-            &DialogAdmin::handle_textChanged);
+void DialogAdmin::install_default_event_handler()
+{
+    for (auto field: {ui->organiserField, ui->competField}) {
+        connect(field, &QLineEdit::textChanged, this,
+                &DialogAdmin::handle_textChanged);
+    }
     connect(ui->openFilebutton, &QToolButton::clicked, this,
             &DialogAdmin::openQuestionFile);
     connect(ui->nextBtn, SIGNAL(clicked()), this, SLOT(passNext()));
-    connect(ui->resetBtn, &QPushButton::clicked, this,
-            &DialogAdmin::resetEveryField);
+    connect(ui->resetBtn, SIGNAL(clicked()), this, SLOT(resetEveryField()));
 }
 
-void DialogAdmin::handle_textChanged(const QString &) {
+void DialogAdmin::resetEveryField()
+{
+    ui->organiserField->clear();
+    ui->competField->clear();
+    ui->numGroupField->setValue(4);
+    ui->openFilebutton->setText("...");
+    ui->required_label->setVisible(true);
+    ui->nextBtn->setHidden(true);
+    ui->resetBtn->setHidden(true);
+    pathToFile.clear();
+}
+
+void DialogAdmin::handle_textChanged(const QString &s)
+{
+    s.isEmpty() ? ui->resetBtn->setVisible(false)
+                : ui->resetBtn->setVisible(true);
+
     if (
             (!ui->organiserField->text().isEmpty()) &&
             (!ui->competField->text().isEmpty()) &&
             (!pathToFile.isEmpty())
             ) {
-        ui->resetBtn->setVisible(true);
         ui->nextBtn->setVisible(true);
         ui->required_label->setHidden(true);
     } else {
         ui->required_label->setVisible(true);
-        ui->resetBtn->setHidden(true);
         ui->nextBtn->setHidden(true);
     }
 }
 
-void DialogAdmin::resetEveryField() {
-    ui->organiserField->clear();
-    ui->competField->clear();
-    ui->numGroupField->setValue(4);
-    ui->nextBtn->setHidden(true);
-    pathToFile.clear();
-}
-
-void DialogAdmin::openQuestionFile() {
+void DialogAdmin::openQuestionFile()
+{
     QString name = qgetenv("USER");
-    if (name.isEmpty())
+    if (name.isEmpty()) {
         name = qgetenv("USERNAME");
-#ifdef linux
+    }
+    #ifdef linux
     pathToFile = QFileDialog::getOpenFileName(this,
                                               tr("Choose question's file to load"),
                                               "", tr("File") +
                                                   "(*.txt *.qst *.c *.cpp)");
-#else
+    #else
     pathToFile = QFileDialog::getOpenFileName(this,tr("Choose question's file to load"),
                                               /*name*/"",tr("File")+"(*.txt *.qst *.c *.cpp)");
-#endif
+    #endif
 
     //pathToFile = ":/ecriture.txt";
     questionFile = new QFile(pathToFile);
-    if (!questionFile->open(QIODevice::ReadOnly))
+    if (!questionFile->open(QIODevice::ReadOnly)) {
         QMessageBox::critical(this, tr("Error"), tr("File not founded"));
-    else {
+    } else {
         questionFile->close();
         QString fileName = pathToFile.section("/", -1, -1);
         ui->openFilebutton->setText(fileName);
@@ -84,18 +95,18 @@ void DialogAdmin::openQuestionFile() {
             ui->required_label->setHidden(true);
         }
     }
-
 }
 
-void DialogAdmin::passNext() {
+void DialogAdmin::passNext()
+{
     prepareNextStep();
 
     /*configureTab: Inner TabWidget*/
     auto* configureTab = new QTabWidget;
     for (int i = 0; i < ui->numGroupField->value(); ++i) {
-        auto* group = new ConfigurePlayer(configureTab, i);
-        m_boxContainer.append(group->boxContainer());
-        configureTab->addTab(group, "Group " + QString::number(i + 1));
+        auto* cfg = new ConfigurePlayer(configureTab, i);
+        m_boxContainer.append(cfg->boxContainer());
+        configureTab->addTab(cfg, "Group " + QString::number(i + 1));
     }
     configureTab->setTabPosition(QTabWidget::East);
 
@@ -107,19 +118,23 @@ void DialogAdmin::passNext() {
     setMaximumSize(size());
 }
 
-void DialogAdmin::prepareNextStep() {
+void DialogAdmin::prepareNextStep()
+{
     for (int i = 0; i < 2; ++i) {
         auto tab = ui->tabContainer->widget(0);
         ui->tabContainer->removeTab(0);
         tab->deleteLater();
     }
     delete ui->resetBtn;
-    ui->nextBtn->setText(tr("&Finish"));
+    this->section = 1;
+    ui->nextBtn->setText(tr("Configuration &done"));
+    ui->nextBtn->setDescription(tr("Main interface"));
     disconnect(ui->nextBtn, SIGNAL(clicked()), this, SLOT(passNext()));
     connect(ui->nextBtn, SIGNAL(clicked()), this, SLOT(loadUserInterface()));
 }
 
-void DialogAdmin::loadUserInterface() {
+void DialogAdmin::loadUserInterface()
+{
     auto* mainInterface = new UserInterface(this->m_boxContainer);
     //mainInterface->setPathToFile(questionFile);
     mainInterface->setPathToFile(pathToFile);
@@ -128,7 +143,8 @@ void DialogAdmin::loadUserInterface() {
 }
 
 
-DialogAdmin::~DialogAdmin() {
+DialogAdmin::~DialogAdmin()
+{
     delete ui;
 }
 

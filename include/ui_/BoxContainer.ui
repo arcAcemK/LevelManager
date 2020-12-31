@@ -93,7 +93,7 @@ font-weight:bold;</string>
         <widget class="QLabel" name="player1">
          <property name="maximumSize">
           <size>
-           <width>110</width>
+           <width>145</width>
            <height>35</height>
           </size>
          </property>
@@ -115,7 +115,7 @@ font-weight:bold;</string>
         <widget class="QLabel" name="player2">
          <property name="maximumSize">
           <size>
-           <width>16777215</width>
+           <width>145</width>
            <height>35</height>
           </size>
          </property>
@@ -142,8 +142,17 @@ font-weight:bold;</string>
      <property name="styleSheet">
       <string notr="true"/>
      </property>
+     <property name="frameShape">
+      <enum>QFrame::Panel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Sunken</enum>
+     </property>
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
      </property>
     </widget>
    </item>

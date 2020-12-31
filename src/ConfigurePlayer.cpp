@@ -29,12 +29,6 @@ void ConfigurePlayer::setUp_lineEdit_Added()
     }
 }
 
-QList<QPushButton*> ConfigurePlayer::allButtons() const
-{
-    return QList({ui->saveBtn, ui->discardBtn,
-                  ui->setGroupPictureBtn});
-}
-
 void ConfigurePlayer::backupLabelValues()
 {
     auto playersAndGroupName = bx->playersAndGroupName();
@@ -45,20 +39,22 @@ void ConfigurePlayer::backupLabelValues()
 
 void ConfigurePlayer::setupAddedButton()
 {
-    for (auto btn: allButtons()) {
+    ui->selectPictBtn->setCursor(Qt::PointingHandCursor);
+    ui->discardBtn->setIcon(QIcon(":/discard.svg"));
+    ui->saveBtn->setIcon(QIcon(":/save.svg"));
+    ui->selectPictBtn->setIcon(QIcon(":/picture.svg"));
+    for (QPushButton* btn: {ui->saveBtn, ui->discardBtn}) {
         btn->setCursor(Qt::PointingHandCursor);
     }
+
+    connect(ui->resetButton, SIGNAL(clicked()), this, SLOT(resetToDefault()));
 
     connect(ui->saveBtn, &QPushButton::clicked, [this]() {
         ui->saveBtn->setEnabled(false);
         ui->discardBtn->setEnabled(false);
-        for (auto lineEdit:
-                {ui->groupNameEdit,
-                 ui->player1_Name,
-                 ui->player2_Name}
-                ) { lineEdit->clear(); } //Clear save value and
-        bkpNamesForQuickEdit.clear(); //Remove old save values from the list and
-        backupLabelValues(); //Save temporary in memory new values
+        clearLineEditField();         //Clear saved values and
+        bkpNamesForQuickEdit.clear();//Remove old saved values from the list and
+        backupLabelValues();        //Save temporary in memory new values
     });
 
     connect(ui->discardBtn, &QPushButton::clicked, [this]() {
@@ -67,17 +63,13 @@ void ConfigurePlayer::setupAddedButton()
         handle_textEdited(bkpNamesForQuickEdit[1], 1);
         handle_textEdited(bkpNamesForQuickEdit[2], 2);
 
-        for (auto lineEdit:
-                {ui->groupNameEdit,
-                 ui->player1_Name,
-                 ui->player2_Name}
-                ) { lineEdit->clear(); }
+        clearLineEditField();
 
         ui->saveBtn->setEnabled(true);
         ui->discardBtn->setEnabled(false);
     });
 
-    connect(ui->setGroupPictureBtn, &QPushButton::clicked,
+    connect(ui->selectPictBtn, &QPushButton::clicked,
             [this]() {
                 pathToPic = (
                         QFileDialog::getOpenFileName(this,
@@ -93,6 +85,15 @@ void ConfigurePlayer::setupAddedButton()
     connect_fieldsEditing(ui->player2_Name, 2);
 }
 
+void ConfigurePlayer::clearLineEditField() const
+{
+    for (auto lineEdit:
+            {ui->groupNameEdit,
+             ui->player1_Name,
+             ui->player2_Name}
+            ) { lineEdit->clear(); }
+}
+
 void ConfigurePlayer::connect_fieldsEditing(QLineEdit* lineEdit, int index)
 {
     connect(lineEdit, &QLineEdit::textEdited, [this, index](auto newText) {
@@ -102,7 +103,7 @@ void ConfigurePlayer::connect_fieldsEditing(QLineEdit* lineEdit, int index)
 
 void ConfigurePlayer::handle_textEdited(QString const &newName, int index)
 {
-    auto playersAndGroupName = bx->playersAndGroupName();
+    auto playersAndGroupName = boxContainer()->playersAndGroupName();
     if (bkpNamesForQuickEdit.isEmpty()) {
         backupLabelValues();
     }
@@ -118,8 +119,8 @@ void ConfigurePlayer::handle_textEdited(QString const &newName, int index)
 void ConfigurePlayer::setGroupName(const QString &a_name, QLabel* groupLabel)
 {
     if (a_name.isEmpty()) {
-        setParentTabName("Unnamed");
-        groupLabel->setText("Unnamed");
+        setParentTabName(tr("Unnamed"));
+        groupLabel->setText(tr("Unnamed"));
     } else {
         setParentTabName(a_name);
         groupLabel->setText(a_name);
@@ -136,10 +137,18 @@ void ConfigurePlayer::setParentTabName(QString const &a_groupName)
 void ConfigurePlayer::setPicture(QString const &a_picture)
 {
     if (!a_picture.isEmpty()) {
-        bx->setGroupPicture(a_picture);
+        boxContainer()->setGroupPicture(a_picture);
     }
 }
 
 BoxContainer* ConfigurePlayer::boxContainer() { return bx; }
 
 ConfigurePlayer::~ConfigurePlayer() { delete ui; }
+
+void ConfigurePlayer::resetToDefault()
+{
+    clearLineEditField();
+    auto playersAndGroupName = boxContainer()->playersAndGroupName();
+    boxContainer()->setDefaultPicture();
+    setGroupName(tr("Group %1").arg(m_index + 1), playersAndGroupName[0]);
+}

@@ -5,81 +5,44 @@
     <name>BoxContainer</name>
     <message>
         <location filename="../../include/ui_/BoxContainer.ui" line="29"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="147"/>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="107"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_BoxContainer.h" line="107"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="150"/>
         <source>BoxContainer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../include/ui_/BoxContainer.ui" line="83"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="148"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="151"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Group name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../include/ui_/BoxContainer.ui" line="104"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="149"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="152"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Player1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../include/ui_/BoxContainer.ui" line="126"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="150"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="153"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Player2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/BoxContainer.ui" line="146"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="151"/>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="108"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_BoxContainer.h" line="108"/>
+        <location filename="../../include/ui_/BoxContainer.ui" line="152"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="154"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/BoxContainer.ui" line="181"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="153"/>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="109"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_BoxContainer.h" line="109"/>
+        <location filename="../../include/ui_/BoxContainer.ui" line="190"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="156"/>
         <source>+1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/BoxContainer.ui" line="162"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="152"/>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="110"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_BoxContainer.h" line="110"/>
+        <location filename="../../include/ui_/BoxContainer.ui" line="171"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="155"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;0 pts&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="111"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_BoxContainer.h" line="111"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;No_Named&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="112"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_BoxContainer.h" line="112"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt; font-weight:600;&quot;&gt;Haidar Nassur Soulaymane&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="113"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_BoxContainer.h" line="113"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mohamed Faouzi&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="114"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_BoxContainer.h" line="114"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;/&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/BoxContainer.cpp" line="61"/>
-        <source>unknown</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -87,64 +50,56 @@
     <name>ConfigurePlayer</name>
     <message>
         <location filename="../../include/ui_/ConfigurePlayer.ui" line="26"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_ConfigurePlayer.h" line="151"/>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_ConfigurePlayer.h" line="59"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_ConfigurePlayer.h" line="59"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_ConfigurePlayer.h" line="152"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/ConfigurePlayer.ui" line="81"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_ConfigurePlayer.h" line="152"/>
-        <source>Change P&amp;icture</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../include/ui_/ConfigurePlayer.ui" line="121"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_ConfigurePlayer.h" line="156"/>
+        <location filename="../../include/ui_/ConfigurePlayer.ui" line="78"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_ConfigurePlayer.h" line="153"/>
         <source>Edit group and Players name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/ConfigurePlayer.ui" line="145"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_ConfigurePlayer.h" line="157"/>
+        <location filename="../../include/ui_/ConfigurePlayer.ui" line="102"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_ConfigurePlayer.h" line="154"/>
         <source>Name of the group</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/ConfigurePlayer.ui" line="158"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_ConfigurePlayer.h" line="158"/>
+        <location filename="../../include/ui_/ConfigurePlayer.ui" line="115"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_ConfigurePlayer.h" line="155"/>
         <source>Name for player 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/ConfigurePlayer.ui" line="171"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_ConfigurePlayer.h" line="159"/>
+        <location filename="../../include/ui_/ConfigurePlayer.ui" line="128"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_ConfigurePlayer.h" line="156"/>
         <source>Name for player 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/ConfigurePlayer.ui" line="186"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_ConfigurePlayer.h" line="160"/>
+        <location filename="../../include/ui_/ConfigurePlayer.ui" line="143"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_ConfigurePlayer.h" line="157"/>
         <source>&amp;Save change</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/ConfigurePlayer.ui" line="202"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_ConfigurePlayer.h" line="161"/>
+        <location filename="../../include/ui_/ConfigurePlayer.ui" line="159"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_ConfigurePlayer.h" line="158"/>
         <source>&amp;Discard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_ConfigurePlayer.h" line="60"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_ConfigurePlayer.h" line="60"/>
-        <source>Click here to insert the name</source>
+        <location filename="../../include/ui_/ConfigurePlayer.ui" line="198"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_ConfigurePlayer.h" line="159"/>
+        <source>Change picture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_ConfigurePlayer.h" line="61"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_ConfigurePlayer.h" line="61"/>
-        <source>Click here to insert a profile picture</source>
+        <location filename="../../include/ui_/ConfigurePlayer.ui" line="201"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_ConfigurePlayer.h" line="160"/>
+        <source>Select a picture in your Pc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -159,17 +114,24 @@
     </message>
     <message>
         <location filename="../../src/ConfigurePlayer.cpp" line="7"/>
+        <location filename="../../src/ConfigurePlayer.cpp" line="117"/>
+        <location filename="../../src/ConfigurePlayer.cpp" line="118"/>
         <source>Unnamed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/ConfigurePlayer.cpp" line="84"/>
+        <location filename="../../src/ConfigurePlayer.cpp" line="71"/>
         <source>Select a picture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/ConfigurePlayer.cpp" line="86"/>
+        <location filename="../../src/ConfigurePlayer.cpp" line="73"/>
         <source>Picture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ConfigurePlayer.cpp" line="148"/>
+        <source>Group %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -177,173 +139,142 @@
     <name>DialogAdmin</name>
     <message>
         <location filename="../../include/ui_/DialogAdmin.ui" line="33"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="322"/>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="296"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_DialogAdmin.h" line="296"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="355"/>
         <source>ACEM competitor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/DialogAdmin.ui" line="173"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="332"/>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="306"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_DialogAdmin.h" line="306"/>
+        <location filename="../../include/ui_/DialogAdmin.ui" line="178"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="365"/>
         <source>Setup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="297"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_DialogAdmin.h" line="297"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;&amp;amp;Organiser&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="298"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_DialogAdmin.h" line="298"/>
-        <source>Academique research Club</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../include/ui_/DialogAdmin.ui" line="214"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="325"/>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="299"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_DialogAdmin.h" line="299"/>
+        <location filename="../../include/ui_/DialogAdmin.ui" line="219"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="358"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;&amp;amp;Competition&apos;s name&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/DialogAdmin.ui" line="230"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="326"/>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="300"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_DialogAdmin.h" line="300"/>
+        <location filename="../../include/ui_/DialogAdmin.ui" line="235"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="359"/>
         <source>Génie en herbe</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/DialogAdmin.ui" line="243"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="327"/>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="301"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_DialogAdmin.h" line="301"/>
+        <location filename="../../include/ui_/DialogAdmin.ui" line="248"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="360"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;&amp;amp;Number of groups&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="302"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_DialogAdmin.h" line="302"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Load question&apos;s file &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../include/ui_/DialogAdmin.ui" line="185"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="323"/>
+        <location filename="../../include/ui_/DialogAdmin.ui" line="190"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="356"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;&amp;amp;Organiser &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/DialogAdmin.ui" line="201"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="324"/>
+        <location filename="../../include/ui_/DialogAdmin.ui" line="206"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="357"/>
         <source>Academic research Club</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/DialogAdmin.ui" line="269"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="328"/>
+        <location filename="../../include/ui_/DialogAdmin.ui" line="274"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="361"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Load &amp;amp;questions&apos;s file &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/DialogAdmin.ui" line="282"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="329"/>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="303"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_DialogAdmin.h" line="303"/>
+        <location filename="../../include/ui_/DialogAdmin.ui" line="287"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="362"/>
         <source>...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/DialogAdmin.ui" line="304"/>
-        <location filename="../../include/ui_/DialogAdmin.ui" line="329"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="330"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="331"/>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="304"/>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="305"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_DialogAdmin.h" line="304"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_DialogAdmin.h" line="305"/>
+        <location filename="../../include/ui_/DialogAdmin.ui" line="309"/>
+        <location filename="../../include/ui_/DialogAdmin.ui" line="334"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="363"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="364"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/DialogAdmin.ui" line="346"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="334"/>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="307"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_DialogAdmin.h" line="307"/>
+        <location filename="../../include/ui_/DialogAdmin.ui" line="351"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="367"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/DialogAdmin.ui" line="352"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="333"/>
+        <location filename="../../include/ui_/DialogAdmin.ui" line="357"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="366"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;&amp;amp;About&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/DialogAdmin.ui" line="377"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="335"/>
+        <location filename="../../include/ui_/DialogAdmin.ui" line="382"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="368"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;* &lt;span style=&quot; color:#de0003;&quot;&gt;Required&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/DialogAdmin.ui" line="409"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="336"/>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="308"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_DialogAdmin.h" line="308"/>
+        <location filename="../../include/ui_/DialogAdmin.ui" line="422"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="369"/>
         <source>&amp;Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../include/ui_/DialogAdmin.ui" line="428"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="337"/>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="309"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_DialogAdmin.h" line="309"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="370"/>
+        <source>Configure teams</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../include/ui_/DialogAdmin.ui" line="447"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="371"/>
         <source>&amp;Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/DialogAdmin.ui" line="444"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="338"/>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="310"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_DialogAdmin.h" line="310"/>
+        <location filename="../../include/ui_/DialogAdmin.ui" line="471"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_DialogAdmin.h" line="372"/>
         <source>&amp;Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/DialogAdmin.cpp" line="64"/>
-        <location filename="../../src/DialogAdmin.cpp" line="68"/>
+        <location filename="../../src/DialogAdmin.cpp" line="75"/>
+        <location filename="../../src/DialogAdmin.cpp" line="79"/>
         <source>Choose question&apos;s file to load</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/DialogAdmin.cpp" line="65"/>
-        <location filename="../../src/DialogAdmin.cpp" line="69"/>
+        <location filename="../../src/DialogAdmin.cpp" line="76"/>
+        <location filename="../../src/DialogAdmin.cpp" line="80"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/DialogAdmin.cpp" line="75"/>
+        <location filename="../../src/DialogAdmin.cpp" line="86"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/DialogAdmin.cpp" line="75"/>
+        <location filename="../../src/DialogAdmin.cpp" line="86"/>
         <source>File not founded</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/DialogAdmin.cpp" line="117"/>
-        <source>&amp;Finish</source>
+        <location filename="../../src/DialogAdmin.cpp" line="133"/>
+        <source>Configuration &amp;done</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/DialogAdmin.cpp" line="103"/>
+        <location filename="../../src/DialogAdmin.cpp" line="134"/>
+        <source>Main interface</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/DialogAdmin.cpp" line="117"/>
         <source>Configure Groups</source>
         <translation type="unfinished"></translation>
     </message>
@@ -366,8 +297,6 @@
     <message>
         <location filename="../../include/ui_/UserInterface.ui" line="14"/>
         <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_UserInterface.h" line="55"/>
-        <location filename="../../Build/LevelManager_autogen/include/ui_/ui_UserInterface.h" line="55"/>
-        <location filename="../../Build/src/src_autogen/include/ui_/ui_UserInterface.h" line="55"/>
         <source>UserInterface</source>
         <translation type="unfinished"></translation>
     </message>

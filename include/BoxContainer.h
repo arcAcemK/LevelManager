@@ -8,25 +8,29 @@
 #include <QtWidgets>
 
 QT_BEGIN_NAMESPACE
-namespace Ui {
+namespace Ui
+{
     class BoxContainer;
 }
 QT_END_NAMESPACE
 
-class BoxContainer: public QWidget {
+class BoxContainer: public QWidget
+{
   Q_OBJECT
   public slots:
     void setGroupName(QString name);
-    void setGroupPicture(QString picture);
-    void setGroupPicture(QPixmap picture);
+    void setGroupPicture(QString picture = "");
+    void setDefaultPicture();
     void setReward(int reward);
     void changeIncrement(int increment);
     void setPlayer1Name(QString name);
     void setPlayer2Name(QString name);
 
   public:
-    explicit BoxContainer(QString groupName = "", QString picture = ""
-                          , QString namePlayer1 = "", QString namePlayer2 = ""
+    explicit BoxContainer(QString groupName = ""
+                          , QString picture = ""
+                          , QString namePlayer1 = ""
+                          , QString namePlayer2 = ""
                           , QWidget* parent = nullptr);
 
     explicit BoxContainer(BoxContainer const &box, QWidget* parent = nullptr);
@@ -44,9 +48,11 @@ class BoxContainer: public QWidget {
     Ui::BoxContainer* ui;
     QPainter* elipse;
     QImage* image;
-    QPixmap* pix;
+    QPixmap pix;
     QString pixPath;
     QLabel* m_groupName;
+
+  private:
 };
 
 #endif // BOXCONTAINER_H

@@ -10,5 +10,10 @@
         <file alias="tr_ar.ts">lang/LevelManager_ar.ts</file>
         <file alias="tr_es.ts">lang/LevelManager_es.ts</file>
         <file alias="tr_fr_FR.ts">lang/LevelManager_fr_FR.ts</file>
+        <file alias="reset.svg">icons/Reset_to_empty.svg</file>
+        <file alias="defaultAvatar.svg">icons/defaultAvatar.svg</file>
+        <file alias="picture.svg">icons/picture.svg</file>
+        <file alias="save.svg">icons/save.svg</file>
+        <file alias="discard.svg">icons/reset.svg</file>
     </qresource>
 </RCC>

@@ -49,41 +49,93 @@ QTabWidget&gt;QWidget
     border-radius:0px 0px 5px 5px;
 }
 
+QTabBar{
+	
+}
+
+/*
+QPushButton
+{
+	background-color:qlineargradient( x1:0.1, y1:0.4, x2:0.3, y2:0.9, 
+									stop: 0.1 rgb(119, 236, 149),
+									stop:0.4 rgb(152, 255, 124),
+									stop:1 rgb(207, 255, 174));
+	border:1px solid rgb(143, 172, 175);
+	border-radius:2;
+}*/
 
 QPushButton
 {
-    border:1px solid black;
-    border-radius:9px 9px;
-    background-color:lightgray;
-	margin-top:0px;
+	background-color:qlineargradient( x1:0.3, y1:0.3, x2:0.1, y2:0.99, 
+									stop: 0.1 rgb(100, 199, 154),
+									stop:0.4 rgb(90, 195, 75),
+									stop:1 rgb(207, 255, 174));
+	border:1px solid rgb(143, 172, 175);
+	border-radius:0;
 }
 
-QPushButton#nextBtn, 
-QPushButton#cancelBtn,
+QPushButton#cancelBtn:hover,
+#resetButton{
+	background-color:qlineargradient( x1:0.1, y1:0.4, x2:0.3, y2:0.9, 
+									stop: 0.1 rgb(199, 99, 109),
+									stop:0.4 rgb(209, 21, 99),
+									stop:1 rgb(214, 115, 154));
+}
+
+QPushButton:hover,
+#resetButton:hover
+{
+	background-color:qlineargradient( x1:0.1, y1:0.5, x2:1, y2:0.9, 
+									stop:0 rgb(242, 199, 161), 
+									stop:0.5 rgb(209, 115, 55), 
+									stop:1 rgb(234, 255, 255));
+}
+
+
+#nextBtn, 
+#cancelBtn,
 #resetBtn
 {
-    padding:7px 20px 6px 20px;
+    padding:7px 20px;
+	max-height:30px;
+	min-height:30px;
+	font-size:10px;
+	border: 1px solid rgb(136, 136, 131);
 }
 
-QPushButton#nextBtn
+#cancelBtn,
+#resetBtn
 {
+	font-weight:bold;
+}
+
+QCommandLinkButton#nextBtn
+{
+border: 1px solid rgb(0, 136, 131);
     background-color:#afd;
 }
 
-QPushButton#nextBtn:hover
+QCommandLinkButton#nextBtn:hover
 {
     background-color:lightgreen;
 }
 
 
-QPushButton#cancelBtn:hover
-{
-        background-color:#f05;
-}
-
 QPushButton#resetBtn:hover
 {
         background-color:#fa2;
+}
+
+QPushButton#resetButton:pressed,
+QPushButton#nextBtn:pressed, 
+QPushButton#cancelBtn:pressed,
+QPushButton#resetBtn:pressed
+{
+	background-color:qlineargradient( x1:0.1, y1:0.4, x2:0.3, y2:0.9, 
+									stop: 0.1 rgb(219, 126, 109),
+									stop:0.4 rgb(202, 115, 54),
+									stop:1 rgb(182, 115, 194));
+	border:1px solid rgb(143, 172, 175);
 }
 
 QLineEdit
@@ -98,7 +150,7 @@ QWidget{
 }
 
 QLabel{
-	font-size:120%;
+	font-size:110%;
 }	
 
 QLabel#required_label{
@@ -109,8 +161,8 @@ QLabel#required_label{
 QToolButton#openFilebutton
 {
 	background-color:lightYellow;
-    border-radius:3px 3px 5px 3px;
-    border:1px solid gray
+    border-radius:3px ;
+    border:1px solid darkgray;
 }
 
 QToolButton:hover#openFilebutton
@@ -124,22 +176,7 @@ QToolButton:hover#openFilebutton
   <property name="modal">
    <bool>false</bool>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0">
-   <property name="spacing">
-    <number>3</number>
-   </property>
-   <property name="leftMargin">
-    <number>5</number>
-   </property>
-   <property name="topMargin">
-    <number>5</number>
-   </property>
-   <property name="rightMargin">
-    <number>5</number>
-   </property>
-   <property name="bottomMargin">
-    <number>5</number>
-   </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QTabWidget" name="tabContainer">
      <property name="enabled">
@@ -365,7 +402,7 @@ QToolButton:hover#openFilebutton
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="buttonLayout">
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
       <widget class="QLabel" name="required_label">
        <property name="sizePolicy">
@@ -386,59 +423,81 @@ QToolButton:hover#openFilebutton
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
+         <width>118</width>
          <height>20</height>
         </size>
        </property>
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="nextBtn">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="layoutDirection">
-        <enum>Qt::LeftToRight</enum>
-       </property>
-       <property name="text">
-        <string>&amp;Next</string>
-       </property>
-       <property name="default">
-        <bool>true</bool>
-       </property>
-       <property name="flat">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="resetBtn">
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>&amp;Reset</string>
-       </property>
-       <property name="autoDefault">
-        <bool>false</bool>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QCommandLinkButton" name="nextBtn">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>46</height>
+          </size>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>&amp;Next</string>
+         </property>
+         <property name="default">
+          <bool>true</bool>
+         </property>
+         <property name="description">
+          <string>Configure teams</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="resetBtn">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>46</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>&amp;Reset</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
       <widget class="QPushButton" name="cancelBtn">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="maximumSize">
         <size>
          <width>16777215</width>
-         <height>16777215</height>
+         <height>46</height>
         </size>
        </property>
        <property name="text">
@@ -465,8 +524,8 @@ QToolButton:hover#openFilebutton
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>596</x>
-     <y>512</y>
+     <x>592</x>
+     <y>508</y>
     </hint>
     <hint type="destinationlabel">
      <x>259</x>
