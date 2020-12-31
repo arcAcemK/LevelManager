@@ -43,6 +43,7 @@ void ConfigurePlayer::setupAddedButton()
     ui->discardBtn->setIcon(QIcon(":/discard.svg"));
     ui->saveBtn->setIcon(QIcon(":/save.svg"));
     ui->selectPictBtn->setIcon(QIcon(":/picture.svg"));
+    ui->resetButton->setIcon(QIcon(":/reset.svg"));
     for (QPushButton* btn: {ui->saveBtn, ui->discardBtn}) {
         btn->setCursor(Qt::PointingHandCursor);
     }

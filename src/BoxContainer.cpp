@@ -6,10 +6,6 @@ BoxContainer::BoxContainer(QString groupName, QString picture
         : QWidget(parent), ui(new Ui::BoxContainer)
 {
     ui->setupUi(this);
-    ui->groupName->setAlignment(Qt::AlignCenter);
-    ui->player1->setAlignment(Qt::AlignCenter);
-    ui->player2->setAlignment(Qt::AlignCenter);
-    ui->groupNote->setAlignment(Qt::AlignCenter);
     setGroupName(groupName);
     setGroupPicture(picture);
     setPlayer1Name(namePlayer1);
@@ -20,11 +16,6 @@ BoxContainer::BoxContainer(BoxContainer const &refBox, QWidget* parent)
         : QWidget(parent), ui(new Ui::BoxContainer)
 {
     ui->setupUi(this);
-    ui->groupName->setAlignment(Qt::AlignCenter);
-    ui->player1->setAlignment(Qt::AlignRight);
-    ui->player2->setAlignment(Qt::AlignLeft);
-    ui->groupNote->setAlignment(Qt::AlignCenter);
-
     setGroupName(refBox.groupName());
     setGroupPicture(refBox.pixPath);
 }

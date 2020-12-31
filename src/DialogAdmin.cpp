@@ -20,6 +20,7 @@ DialogAdmin::DialogAdmin(QWidget* parent)
     ui->acemLabel->setPixmap(acemLogo);
 
     ui->resetBtn->setIcon(QIcon(":/reset.svg"));
+    ui->cancelBtn->setIcon(QIcon(":/cancel.svg"));
 }
 
 void DialogAdmin::install_default_event_handler()

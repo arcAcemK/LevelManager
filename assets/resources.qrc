@@ -1,19 +1,16 @@
 <RCC>
     <qresource prefix="/">
         <file alias="ecriture.txt">txt/ecriture.txt</file>
-        <file alias="faouz.jpg">images/faouz.jpg</file>
-        <file alias="faouzi.jpg">images/faouzi.jpg</file>
-        <file alias="faouzii.jpg">images/faouzii.jpg</file>
-        <file alias="morti.gif">images/morti.gif</file>
-        <file alias="cra_logo.png">images/cra_logo.png</file>
-        <file alias="acem_logo.jpeg">images/acem_logo.jpeg</file>
         <file alias="tr_ar.ts">lang/LevelManager_ar.ts</file>
         <file alias="tr_es.ts">lang/LevelManager_es.ts</file>
         <file alias="tr_fr_FR.ts">lang/LevelManager_fr_FR.ts</file>
         <file alias="reset.svg">icons/Reset_to_empty.svg</file>
         <file alias="defaultAvatar.svg">icons/defaultAvatar.svg</file>
         <file alias="picture.svg">icons/picture.svg</file>
-        <file alias="save.svg">icons/save.svg</file>
         <file alias="discard.svg">icons/reset.svg</file>
+        <file alias="save.svg">icons/save_changes.svg</file>
+        <file alias="acem_logo.jpeg">icons/acem_logo.jpeg</file>
+        <file alias="cra_logo.png">icons/cra_logo.png</file>
+        <file alias="cancel.svg">icons/cancel.svg</file>
     </qresource>
 </RCC>
