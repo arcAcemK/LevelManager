@@ -23,10 +23,9 @@ void ConfigurePlayer::setUp_lineEdit_Added()
 
     /** Example of Match : "A", [:whitespace:], " A", "ACEM", "A CE- M", ...*/
     QRegExp regexPlayers(R"(^\s?(\S\s?)*)");
-    auto playerValidator = new QRegExpValidator(regexPlayers, this);
-    for (auto lineEdit: {ui->player1_Name, ui->player2_Name}) {
-        lineEdit->setValidator(playerValidator);
-    }
+    auto playerValidator = new QRegExpValidator(regexPlayers, this);    
+    ui->player1_Name->setValidator(playerValidator);
+    ui->player2_Name->setValidator(playerValidator);
 }
 
 void ConfigurePlayer::backupLabelValues()
@@ -55,7 +54,7 @@ void ConfigurePlayer::setupAddedButton()
         ui->discardBtn->setEnabled(false);
         clearLineEditField();         //Clear saved values and
         bkpNamesForQuickEdit.clear();//Remove old saved values from the list and
-        backupLabelValues();        //Save temporary in memory new values
+        backupLabelValues();        //Save new values temporary in memory 
     });
 
     connect(ui->discardBtn, &QPushButton::clicked, [this]() {
