@@ -5,43 +5,43 @@
     <name>BoxContainer</name>
     <message>
         <location filename="../../include/ui_/BoxContainer.ui" line="29"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="150"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="152"/>
         <source>BoxContainer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../include/ui_/BoxContainer.ui" line="83"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="151"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Group name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="153"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Group name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../include/ui_/BoxContainer.ui" line="104"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="152"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="154"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Player1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../include/ui_/BoxContainer.ui" line="126"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="153"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="155"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Player2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../include/ui_/BoxContainer.ui" line="152"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="154"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="156"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/BoxContainer.ui" line="190"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="156"/>
+        <location filename="../../include/ui_/BoxContainer.ui" line="202"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="158"/>
         <source>+1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../include/ui_/BoxContainer.ui" line="171"/>
-        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="155"/>
+        <location filename="../../include/ui_/BoxContainer.ui" line="177"/>
+        <location filename="../../Build/Debug/LevelManager_autogen/include/ui_/ui_BoxContainer.h" line="157"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;0 pts&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -115,34 +115,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/ConfigurePlayer.cpp" line="7"/>
+        <location filename="../../src/ConfigurePlayer.cpp" line="11"/>
         <source>Player1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/ConfigurePlayer.cpp" line="7"/>
+        <location filename="../../src/ConfigurePlayer.cpp" line="12"/>
         <source>Player2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/ConfigurePlayer.cpp" line="7"/>
-        <location filename="../../src/ConfigurePlayer.cpp" line="122"/>
-        <location filename="../../src/ConfigurePlayer.cpp" line="123"/>
+        <location filename="../../src/ConfigurePlayer.cpp" line="9"/>
+        <location filename="../../src/ConfigurePlayer.cpp" line="129"/>
+        <location filename="../../src/ConfigurePlayer.cpp" line="130"/>
         <source>Unnamed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/ConfigurePlayer.cpp" line="76"/>
+        <location filename="../../src/ConfigurePlayer.cpp" line="81"/>
         <source>Select a picture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/ConfigurePlayer.cpp" line="78"/>
+        <location filename="../../src/ConfigurePlayer.cpp" line="83"/>
         <source>Picture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/ConfigurePlayer.cpp" line="153"/>
+        <location filename="../../src/ConfigurePlayer.cpp" line="159"/>
         <source>Group %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -254,15 +254,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/DialogAdmin.cpp" line="75"/>
-        <location filename="../../src/DialogAdmin.cpp" line="79"/>
-        <source>Choose question&apos;s file to load</source>
+        <location filename="../../src/DialogAdmin.cpp" line="78"/>
+        <source>Select a file containing questions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/DialogAdmin.cpp" line="76"/>
-        <location filename="../../src/DialogAdmin.cpp" line="80"/>
+        <location filename="../../src/DialogAdmin.cpp" line="79"/>
         <source>File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/DialogAdmin.cpp" line="85"/>
+        <source>File cannot be read or is corrupted!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -271,22 +274,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/DialogAdmin.cpp" line="86"/>
-        <source>File not founded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/DialogAdmin.cpp" line="130"/>
+        <location filename="../../src/DialogAdmin.cpp" line="121"/>
         <source>Configuration &amp;done</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/DialogAdmin.cpp" line="131"/>
+        <location filename="../../src/DialogAdmin.cpp" line="122"/>
         <source>Main interface</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/DialogAdmin.cpp" line="114"/>
+        <location filename="../../src/DialogAdmin.cpp" line="106"/>
         <source>Configure Groups</source>
         <translation type="unfinished"></translation>
     </message>
@@ -294,12 +292,12 @@
 <context>
     <name>QTranslator</name>
     <message>
-        <location filename="../../main.cpp" line="10"/>
+        <location filename="../../main.cpp" line="9"/>
         <source>Academic Research Club</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="11"/>
+        <location filename="../../main.cpp" line="10"/>
         <source>Level Manager</source>
         <translation type="unfinished"></translation>
     </message>
