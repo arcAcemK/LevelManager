@@ -6,6 +6,7 @@
 #include <QtCore>
 #include <QtGui>
 #include <QtWidgets>
+#include "LMGlobal.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -18,41 +19,38 @@ class BoxContainer: public QWidget
 {
   Q_OBJECT
   public slots:
-    void setGroupName(QString name);
-    void setGroupPicture(QString picture = "");
+    void setGroupPicture(const QString &picture = "");
     void setDefaultPicture();
-    void setReward(int reward);
+    void setGroupName(const QString &name);
+    void setPlayer1Name(const QString &name);
+    void setPlayer2Name(const QString &name);
     void changeIncrement(int increment);
-    void setPlayer1Name(QString name);
-    void setPlayer2Name(QString name);
 
   public:
-    explicit BoxContainer(QString groupName = ""
-                          , QString picture = ""
-                          , QString namePlayer1 = ""
-                          , QString namePlayer2 = ""
+    explicit BoxContainer(const QString &groupName = ""
+                          , const QString &picture = ""
+                          , const QString &namePlayer1 = ""
+                          , const QString &namePlayer2 = ""
                           , QWidget* parent = nullptr);
 
     explicit BoxContainer(BoxContainer const &box, QWidget* parent = nullptr);
     ~BoxContainer();
-    QString reward() const;
+    QLabel* groupLabel() const;
+    QLabel* player1Label() const;
+    QLabel* player2Label() const;
     QString groupName() const;
+    void setPlayerName(const QString &name, int whichPlayer);
+    QString player1Name() const;
+    QString player2Name() const;
+    void setReward(int reward);
+    QString reward() const;
     QList<QLabel*> playersAndGroupName() const;
-    QPixmap userPict() const;
-
+    QString groupPicture() const;
+    static QString defaultGroupPic();
   private:
-    const int pixWidth = 280;
-    const int pixHeight = 300;
-    int boxWidth;
-    int boxHeigth;
     Ui::BoxContainer* ui;
-    QPainter* elipse;
-    QImage* image;
-    QPixmap pix;
-    QString pixPath;
-    QLabel* m_groupName;
-
-  private:
+    QString picturePath;
+    friend void LMG::setIcon(QLabel*, const QString &, QSize);
 };
 
 #endif // BOXCONTAINER_H

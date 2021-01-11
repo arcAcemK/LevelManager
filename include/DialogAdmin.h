@@ -9,6 +9,7 @@
 #include "ConfigurePlayer.h"
 #include "UserInterface.h"
 #include "ui_/ui_DialogAdmin.h"
+#include "LMGlobal.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -26,24 +27,29 @@ class DialogAdmin: public QDialog
 
     ~DialogAdmin();
 
+  signals:
+    /*Signal emitted whenever a field is edited*/
+    void fieldsChanged();
+
   public slots:
-    void handle_textChanged(const QString &);
+    void handle_fieldsChanged();
     void resetEveryField();
-    void openQuestionFile();
+    void setFile(const QString &path_to_file);
+    void get_qstFile();
     void passNext();
     void loadUserInterface();
 
   private:
     Ui::DialogAdmin* ui;
-    QString pathToFile;
+    QString pathToQstFile;
     QFile* questionFile;
     //QTextStream* fileManip;
-    int section = 0;
     QVector<BoxContainer*> m_boxContainer;
 
     void install_default_event_handler();
 
     void prepareNextStep();
+    friend void LMG::setIcon(QLabel*, const QString &, QSize);
 };
 
 #endif // DIALOGADMIN_H

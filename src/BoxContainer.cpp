@@ -1,7 +1,9 @@
 #include "../include/BoxContainer.h"
 
-BoxContainer::BoxContainer(QString groupName, QString picture
-                           , QString namePlayer1, QString namePlayer2
+BoxContainer::BoxContainer(const QString &groupName
+                           , const QString &picture
+                           , const QString &namePlayer1
+                           , const QString &namePlayer2
                            , QWidget* parent)
         : QWidget(parent), ui(new Ui::BoxContainer)
 {
@@ -17,43 +19,50 @@ BoxContainer::BoxContainer(BoxContainer const &refBox, QWidget* parent)
 {
     ui->setupUi(this);
     setGroupName(refBox.groupName());
-    setGroupPicture(refBox.pixPath);
+    setPlayer1Name(refBox.player1Name());
+    setPlayer2Name(refBox.player2Name());
+    setGroupPicture(refBox.groupPicture());
 }
 
-void BoxContainer::setPlayer1Name(QString name)
+void BoxContainer::setPlayerName(const QString &name, int whichPlayer)
+{
+    if (whichPlayer == 1) {
+        setPlayer1Name(name);
+    } else {
+        setPlayer2Name(name);
+    }
+}
+
+void BoxContainer::setPlayer1Name(const QString &name)
 {
     if (!name.isEmpty()) {
         ui->player1->setText(name);
     }
 }
 
-void BoxContainer::setPlayer2Name(QString name)
+void BoxContainer::setPlayer2Name(const QString &name)
 {
     if (!name.isEmpty()) {
         ui->player2->setText(name);
     }
 }
 
-void BoxContainer::setGroupName(QString name)
+void BoxContainer::setGroupName(const QString &name)
 {
     if (!name.isEmpty()) {
         ui->groupName->setText(name);
     }
 }
 
-void BoxContainer::setGroupPicture(QString picture)
+void BoxContainer::setGroupPicture(const QString &picture)
 {
     auto pixSize = ui->groupPicture->size() * 10;
     if (picture.isEmpty()) {
-        pixPath = ":/defaultAvatar.svg";
-        pix = (QPixmap(pixPath, "svg")
-                .scaled(pixSize, Qt::KeepAspectRatio));
+        picturePath = BoxContainer::defaultGroupPic();
     } else {
-        pixPath = picture;
-        pix = QPixmap(picture).scaled(pixSize, Qt::KeepAspectRatio);
+        picturePath = picture;
     }
-    //*pix = pix->scaled(pixWidth, pixHeight);
-    ui->groupPicture->setPixmap(pix);
+    LMG::setIcon(ui->groupPicture, picturePath, pixSize);
 }
 
 void BoxContainer::setDefaultPicture() { setGroupPicture(); }
@@ -72,8 +81,17 @@ QString BoxContainer::reward() const { return ui->groupNote->text(); }
 
 QString BoxContainer::groupName() const { return ui->groupName->text(); }
 
-QPixmap BoxContainer::userPict() const { return pix; }
+QString BoxContainer::player1Name() const { return ui->player1->text(); }
 
+QString BoxContainer::player2Name() const { return ui->player2->text(); }
+
+QLabel* BoxContainer::groupLabel() const { return ui->groupName; }
+
+QLabel* BoxContainer::player1Label() const { return ui->player1; }
+
+QLabel* BoxContainer::player2Label() const { return ui->player2; }
+
+QString BoxContainer::groupPicture() const { return picturePath; }
 
 BoxContainer::~BoxContainer() { delete ui; }
 
@@ -81,3 +99,5 @@ QList<QLabel*> BoxContainer::playersAndGroupName() const
 {
     return QList<QLabel*>({ui->groupName, ui->player1, ui->player2});
 }
+
+QString BoxContainer::defaultGroupPic() { return ":/defaultAvatar.svg"; }

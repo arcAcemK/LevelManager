@@ -1,24 +1,17 @@
 #include "../include/DialogAdmin.h"
 
 DialogAdmin::DialogAdmin(QWidget* parent)
-        : QDialog(parent), ui(new Ui::DialogAdmin)
+        : QDialog(parent),
+          ui(new Ui::DialogAdmin),
+          questionFile(nullptr)
 {
     ui->setupUi(this);
     ui->required_label->setHidden(false);
     ui->nextBtn->setHidden(true);
     install_default_event_handler();
-
-    int icon_size = 200;
-    QPixmap craLogo = QPixmap();
-    craLogo.load(":/cra_logo.png");
-    craLogo = craLogo.scaled(icon_size, icon_size);
-    ui->craLabel->setPixmap(craLogo);
-
-    QPixmap acemLogo = QPixmap();
-    acemLogo.load(":/acem_logo.jpeg");
-    acemLogo = acemLogo.scaled(icon_size, icon_size);
-    ui->acemLabel->setPixmap(acemLogo);
-
+    auto iconSize = ui->craLabel->size() * 7;
+    LMG::setIcon(ui->craLabel, ":/cra_logo.png", iconSize);
+    LMG::setIcon(ui->acemLabel, ":/acem_logo.jpeg", iconSize);
     ui->resetBtn->setIcon(QIcon(":/reset.svg"));
     ui->cancelBtn->setIcon(QIcon(":/cancel.svg"));
 }
@@ -26,37 +19,33 @@ DialogAdmin::DialogAdmin(QWidget* parent)
 void DialogAdmin::install_default_event_handler()
 {
     for (auto field: {ui->organiserField, ui->competField}) {
-        connect(field, &QLineEdit::textChanged, this,
-                &DialogAdmin::handle_textChanged);
+        connect(field, &QLineEdit::textChanged,
+                [this](const QString &) { emit fieldsChanged(); });
     }
-    connect(ui->openFilebutton, &QToolButton::clicked, this,
-            &DialogAdmin::openQuestionFile);
+    connect(ui->openFilebutton, &QToolButton::clicked,
+            this, &DialogAdmin::get_qstFile);
     connect(ui->nextBtn, SIGNAL(clicked()), this, SLOT(passNext()));
     connect(ui->resetBtn, SIGNAL(clicked()), this, SLOT(resetEveryField()));
+    connect(this, &DialogAdmin::fieldsChanged,
+            this, &DialogAdmin::handle_fieldsChanged);
 }
 
 void DialogAdmin::resetEveryField()
 {
     ui->organiserField->clear();
     ui->competField->clear();
+    pathToQstFile.clear();
     ui->numGroupField->setValue(4);
     ui->openFilebutton->setText("...");
-    ui->required_label->setVisible(true);
-    ui->nextBtn->setHidden(true);
-    ui->resetBtn->setHidden(true);
-    pathToFile.clear();
+    emit fieldsChanged();
 }
 
-void DialogAdmin::handle_textChanged(const QString &s)
+void DialogAdmin::handle_fieldsChanged()
 {
-    s.isEmpty() ? ui->resetBtn->setVisible(false)
-                : ui->resetBtn->setVisible(true);
-
-    if (
-            (!ui->organiserField->text().isEmpty()) &&
-            (!ui->competField->text().isEmpty()) &&
-            (!pathToFile.isEmpty())
-            ) {
+    if ((!pathToQstFile.isEmpty()) &&
+        (!ui->organiserField->text().isEmpty()) &&
+        (!ui->competField->text().isEmpty())) {
+        ui->resetBtn->setVisible(true);
         ui->nextBtn->setVisible(true);
         ui->required_label->setHidden(true);
     } else {
@@ -65,36 +54,29 @@ void DialogAdmin::handle_textChanged(const QString &s)
     }
 }
 
-void DialogAdmin::openQuestionFile()
+void DialogAdmin::setFile(const QString &path_to_file)
 {
-    QString name = qgetenv("USER");
-    if (name.isEmpty()) {
-        name = qgetenv("USERNAME");
-    }
-    #ifdef linux
-    pathToFile = QFileDialog::getOpenFileName(this,
-                                              tr("Choose question's file to load"),
-                                              "", tr("File") +
-                                                  "(*.txt *.qst *.c *.cpp)");
-    #else
-    pathToFile = QFileDialog::getOpenFileName(this,tr("Choose question's file to load"),
-                                              /*name*/"",tr("File")+"(*.txt *.qst *.c *.cpp)");
-    #endif
+    this->pathToQstFile = path_to_file;
+    /* Get the base name of the file.
+     Example : /home/user/file.txt --> filename = file.txt*/
+    QString fileName = pathToQstFile.section("/", -1, -1);
+    ui->openFilebutton->setText(fileName);
+    emit fieldsChanged();
+}
 
-    //pathToFile = ":/ecriture.txt";
-    questionFile = new QFile(pathToFile);
-    if (!questionFile->open(QIODevice::ReadOnly)) {
-        QMessageBox::critical(this, tr("Error"), tr("File not founded"));
+void DialogAdmin::get_qstFile()
+{
+    auto caption = tr("Select a file containing questions");
+    auto filter = tr("File") + "(*.txt *.qst *.c *.cpp)";
+    auto dir = "";
+    pathToQstFile = QFileDialog::getOpenFileName(this, caption, dir, filter);
+    //pathToQstFile = ":/ecriture.txt";
+    questionFile = new QFile(pathToQstFile);
+    if (!questionFile->exists()) {
+        auto error_message = tr("File cannot be read or is corrupted!");
+        QMessageBox::critical(this, tr("Error"), error_message);
     } else {
-        questionFile->close();
-        QString fileName = pathToFile.section("/", -1, -1);
-        ui->openFilebutton->setText(fileName);
-        if ((!ui->organiserField->text().isEmpty()) &&
-            (!ui->competField->text().isEmpty())) {
-            ui->resetBtn->setVisible(true);
-            ui->nextBtn->setVisible(true);
-            ui->required_label->setHidden(true);
-        }
+        setFile(pathToQstFile);
     }
 }
 
@@ -127,7 +109,6 @@ void DialogAdmin::prepareNextStep()
         tab->deleteLater();
     }
     delete ui->resetBtn;
-    this->section = 1;
     ui->nextBtn->setText(tr("Configuration &done"));
     ui->nextBtn->setDescription(tr("Main interface"));
     disconnect(ui->nextBtn, SIGNAL(clicked()), this, SLOT(passNext()));
@@ -138,7 +119,7 @@ void DialogAdmin::loadUserInterface()
 {
     auto* mainInterface = new UserInterface(this->m_boxContainer);
     //mainInterface->setPathToFile(questionFile);
-    mainInterface->setPathToFile(pathToFile);
+    mainInterface->setPathToFile(pathToQstFile);
     mainInterface->showFullScreen();
     done(0);
 }

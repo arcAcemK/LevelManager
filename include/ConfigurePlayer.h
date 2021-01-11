@@ -34,7 +34,7 @@ class ConfigurePlayer: public QWidget
     void handle_textEdited(QString const &newText, int index);
     void connect_fieldsEditing(QLineEdit* lineEdit, int index);
     void setUp_lineEdit_Added();
-    void setGroupName(const QString &newText, QLabel* list);
+    void setGroupName(const QString &newText);
     void backupLabelValues();
     void clearLineEditField() const;
 };
