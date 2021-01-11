@@ -19,14 +19,17 @@ set(PROJECT_CPP
         src/ConfigurePlayer.cpp
         src/DialogAdmin.cpp
         src/UserInterface.cpp
+        src/LMGlobal.cpp
         main.cpp
         )
+
 
 set(PROJECT_HEADERS
         include/BoxContainer.h
         include/ConfigurePlayer.h
         include/DialogAdmin.h
         include/UserInterface.h
+        include/LMGlobal.h
         )
 
 set(PROJECT_UI
@@ -42,7 +45,8 @@ set(PROJECT_RESOURCES
 set(TS_FILES
         assets/lang/LevelManager_fr_FR.ts
         assets/lang/LevelManager_ar.ts
-        assets/lang/LevelManager_es.ts)
+        assets/lang/LevelManager_es.ts
+        )
 
 set(PROJECT_SOURCES
         ${PROJECT_CPP}
