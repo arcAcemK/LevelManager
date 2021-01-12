@@ -1,16 +1,20 @@
-#include "../include/ConfigurePlayer.h"
+#include "../include/LMConfigProfile.h"
 
-ConfigurePlayer::ConfigurePlayer(QTabWidget* parent, int index)
-        : QWidget(parent),
-          ui(new Ui::ConfigurePlayer),
-          m_tabParent(parent),
-          m_index(index),
-          bx(new BoxContainer(
-                  tr("Unnamed"),
-                  BoxContainer::defaultGroupPic(),
-                  tr("Player1"),
-                  tr("Player2"))
-            )
+LMCP::LMConfigProfile(QTabWidget
+* parent,
+int index
+)
+:
+QWidget (parent),
+ui(new Ui::LMConfigProfile),
+m_tabParent(parent),
+m_index(index),
+bx(new LMProfile(
+        tr("Unnamed"),
+        LMProfile::defaultGroupPic(),
+        tr("Player1"),
+        tr("Player2"))
+  )
 {
     auto* layout = new QVBoxLayout;
     layout->addWidget(bx);
@@ -21,7 +25,7 @@ ConfigurePlayer::ConfigurePlayer(QTabWidget* parent, int index)
     setupAddedButton();
 }
 
-void ConfigurePlayer::setUp_lineEdit_Added()
+void LMCP::setUp_lineEdit_Added()
 {
     /** Example of Match  : "A", "ACEM", "A CE- M",... */
     QRegExp regexGroup(R"(^\S(\s?\S)*)");
@@ -35,14 +39,14 @@ void ConfigurePlayer::setUp_lineEdit_Added()
     ui->player2_Name->setValidator(playerValidator);
 }
 
-void ConfigurePlayer::backupLabelValues()
+void LMCP::backupLabelValues()
 {
     bkpNamesForQuickEdit.append(boxContainer()->groupName());
     bkpNamesForQuickEdit.append(boxContainer()->player1Name());
     bkpNamesForQuickEdit.append(boxContainer()->player1Name());
 }
 
-void ConfigurePlayer::setupAddedButton()
+void LMCP::setupAddedButton()
 {
     ui->selectPictBtn->setCursor(Qt::PointingHandCursor);
     ui->discardBtn->setIcon(QIcon(":/discard.svg"));
@@ -90,7 +94,7 @@ void ConfigurePlayer::setupAddedButton()
     connect_fieldsEditing(ui->player2_Name, 2);
 }
 
-void ConfigurePlayer::clearLineEditField() const
+void LMCP::clearLineEditField() const
 {
     for (auto lineEdit:
             {ui->groupNameEdit,
@@ -99,14 +103,14 @@ void ConfigurePlayer::clearLineEditField() const
             ) { lineEdit->clear(); }
 }
 
-void ConfigurePlayer::connect_fieldsEditing(QLineEdit* lineEdit, int index)
+void LMCP::connect_fieldsEditing(QLineEdit* lineEdit, int index)
 {
     connect(lineEdit, &QLineEdit::textEdited, [this, index](auto newText) {
         this->handle_textEdited(newText, index);
     });
 }
 
-void ConfigurePlayer::handle_textEdited(QString const &newName, int index)
+void LMCP::handle_textEdited(QString const &newName, int index)
 {
     if (bkpNamesForQuickEdit.isEmpty()) {
         backupLabelValues();
@@ -123,7 +127,7 @@ void ConfigurePlayer::handle_textEdited(QString const &newName, int index)
     }
 }
 
-void ConfigurePlayer::setGroupName(const QString &a_name)
+void LMCP::setGroupName(const QString &a_name)
 {
     if (a_name.isEmpty()) {
         setParentTabName(tr("Unnamed"));
@@ -134,25 +138,25 @@ void ConfigurePlayer::setGroupName(const QString &a_name)
     }
 }
 
-void ConfigurePlayer::setParentTabName(QString const &a_groupName)
+void LMCP::setParentTabName(QString const &a_groupName)
 {
     if (m_index != -1) {
         m_tabParent->setTabText(m_index, a_groupName);
     }
 }
 
-void ConfigurePlayer::setPicture(QString const &a_picture)
+void LMCP::setPicture(QString const &a_picture)
 {
     if (!a_picture.isEmpty()) {
         boxContainer()->setGroupPicture(a_picture);
     }
 }
 
-BoxContainer* ConfigurePlayer::boxContainer() { return bx; }
+LMProfile* LMCP::boxContainer() { return bx; }
 
-ConfigurePlayer::~ConfigurePlayer() { delete ui; }
+LMCP::~LMConfigProfile() { delete ui; }
 
-void ConfigurePlayer::resetToDefault()
+void LMCP::resetToDefault()
 {
     clearLineEditField();
     boxContainer()->setDefaultPicture();

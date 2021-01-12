@@ -1,12 +1,14 @@
-#include "../include/UserInterface.h"
+#include "../include/LMMainUi.h"
 
-UserInterface::UserInterface(QWidget *parent)
-        : QMainWindow(parent), ui(new Ui::UserInterface) {
+LMMainUi::LMMainUi(QWidget* parent)
+        : QMainWindow(parent),
+          ui(new Ui::LMMainUi)
+{
     ui->setupUi(this);
     createMenuBar();
     openQuestionFile();
     createDefaultBottomDockWidget();
-    QWidget *centraleZone = new QWidget(this);
+    auto* centraleZone = new QWidget(this);
     centralHLayout = new QHBoxLayout(centraleZone);
     addPlayer();
     addPlayer();
@@ -17,35 +19,38 @@ UserInterface::UserInterface(QWidget *parent)
     resize(720, 480);
 }
 
-UserInterface::UserInterface(QVector<BoxContainer *> listePlayers,
-                             QWidget *parent)
-        : QMainWindow(parent), ui(new Ui::UserInterface) {
+LMMainUi::LMMainUi(QVector<LMProfile*> listePlayers
+                   , QWidget* parent)
+        : QMainWindow(parent), ui(new Ui::LMMainUi)
+{
     ui->setupUi(this);
     createMenuBar();
     openQuestionFile();
     createDefaultBottomDockWidget();
-    QWidget *centraleZone = new QWidget(this);
+    QWidget* centraleZone = new QWidget(this);
     centralHLayout = new QHBoxLayout(centraleZone);
     setListePlayers(listePlayers);
-    for (int i = 0; i < m_listePlayers.size(); ++i)
+    for (int i = 0; i < m_listePlayers.size(); ++i) {
         addPlayer(m_listePlayers.at(i));
+    }
 
     centraleZone->setLayout(centralHLayout);
     setCentralWidget(centraleZone);
 }
 
-UserInterface::UserInterface(QList<BoxContainer *> listePlayers,
-                             QWidget *parent)
-        : QMainWindow(parent), ui(new Ui::UserInterface) {
+LMMainUi::LMMainUi(QList<LMProfile*> listePlayers, QWidget* parent)
+        : QMainWindow(parent), ui(new Ui::LMMainUi)
+{
     ui->setupUi(this);
     createMenuBar();
     openQuestionFile();
     createDefaultBottomDockWidget();
-    QWidget *centraleZone = new QWidget(this);
+    QWidget* centraleZone = new QWidget(this);
     centralHLayout = new QHBoxLayout(centraleZone);
     setListePlayers(listePlayers);
-    for (int i = 0; i < m_listePlayers.size(); ++i)
+    for (int i = 0; i < m_listePlayers.size(); ++i) {
         addPlayer(m_listePlayers.at(i));
+    }
     centraleZone->setLayout(centralHLayout);
     setCentralWidget(centraleZone);
 }
@@ -56,56 +61,61 @@ UserInterface::UserInterface(QList<BoxContainer *> listePlayers,
  * @param interf
  * @param parent
  */
-UserInterface::UserInterface(UserInterface const &interf, QWidget *parent)
-        : QMainWindow(parent), ui(new Ui::UserInterface) {
+LMMainUi::LMMainUi(LMMainUi const &interf, QWidget* parent)
+        : QMainWindow(parent), ui(new Ui::LMMainUi)
+{
     ui->setupUi(this);
     createMenuBar();
     openQuestionFile();
     createDefaultBottomDockWidget();
-    QWidget *centraleZone = new QWidget(this);
+    QWidget* centraleZone = new QWidget(this);
     centralHLayout = new QHBoxLayout(centraleZone);
     setListePlayers(interf.m_listePlayers);
 
-    for (int i = 0; i < m_listePlayers.size(); ++i)
+    for (int i = 0; i < m_listePlayers.size(); ++i) {
         addPlayer(m_listePlayers.at(i));
+    }
     centraleZone->setLayout(centralHLayout);
     setCentralWidget(centraleZone);
     //resize(720,480);
 }
 
-void UserInterface::createMenuBar() {
-    QAction *openFullScreen = new QAction(tr("&Open Full screen"));
-    QAction *exitFullScreen = new QAction(tr("&Exit full screen"));
-    QAction *exit = new QAction(tr("E&xit"));
-    QAction *about = new QAction(tr("&About"));
-    QAction *credit = new QAction(tr("&Credits"));
-    QAction *aboutQt = new QAction(tr("About &Qt5.14.1"));
-    QMenu *tools = ui->menubar->addMenu(tr("&Tools"));
-    tools->addAction(openFullScreen);
-    tools->addAction(exitFullScreen);
-    tools->addAction(exit);
-    connect(openFullScreen, SIGNAL(triggered()), this, SLOT(showFullScreen()));
-    connect(exitFullScreen, SIGNAL(triggered()), this, SLOT(showMaximized()));
-    connect(exit, SIGNAL(triggered()), this, SLOT(close()));
-    openFullScreen->setShortcut(QKeySequence::FullScreen);
-    exitFullScreen->setShortcut(QKeySequence::Cancel);
-    exit->setShortcut(QKeySequence(tr("CTRL+Q")));
-    connect(new QShortcut(QKeySequence("CTRL+W"), this),
-            SIGNAL(activated()), this, SLOT(close()));
-    QMenu *help = ui->menubar/*menuBar()*/->addMenu(tr("&Help"));
-    help->addAction(about);
-    help->addAction(credit);
-    help->addAction(aboutQt);
-    connect(about, SIGNAL(triggered()), this, SLOT(openAbout()));
-    connect(credit, SIGNAL(triggered()), this, SLOT(openCredit()));
-    connect(aboutQt, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
-    connect(new QShortcut(QKeySequence("ALT+0"), this),
-            SIGNAL(activated()), this, SLOT(hideMenuBar()));
-    /*
-    */
+void LMMainUi::createMenuBar()
+{
+    handle_triggeredSignal(ui->action_fullscreen, &Interface::toggleFullscreen);
+    handle_triggeredSignal(ui->action_Exit, &Interface::quit);
+    ui->action_Exit->setShortcut(QKeySequence(tr("CTRL+Q")));
+
+    auto ctrl_w_seq = new QShortcut(QKeySequence("CTRL+W"), this);
+    connect(ctrl_w_seq, &QShortcut::activated, this, &Interface::close);
+
+    handle_triggeredSignal(ui->action_About, &Interface::openAbout);
+    handle_triggeredSignal(ui->action_Credits, &Interface::openCredit);
+    auto ctrl_h_seq = new QShortcut(QKeySequence("CTRL+H"), this);
+    connect(ctrl_h_seq, SIGNAL(activated()), this, SLOT(hideMenuBar()));
 }
 
-void UserInterface::openQuestionFile() {
+void Interface::handle_triggeredSignal(QAction* a, VoidHandler handler) const
+{
+    connect(a, &QAction::triggered, this, handler);
+}
+
+void Interface::toggleFullscreen()
+{
+    if (isFullScreen()) {
+        showNormal();
+        ui->action_fullscreen->setText(tr("Enter &fullscreen"));
+        ui->action_fullscreen->setShortcut(QKeySequence::FullScreen);
+    } else {
+        showFullScreen();
+        ui->action_fullscreen->setText(tr("Exit &fullscreen"));
+        ui->action_fullscreen->setShortcut(QKeySequence::Cancel);
+    }
+}
+
+
+void LMMainUi::openQuestionFile()
+{
 
     /*pathToFile = QFileDialog::getOpenFileName(this,tr("Choose question's file to load"),
                                               "",tr("File")+"(*.txt *.qst *.c *.cpp)");
@@ -118,8 +128,9 @@ void UserInterface::openQuestionFile() {
     fileManip->setCodec("UTF-8");
 
     QString line;
-    while (!(line = fileManip->readLine()).isNull())
+    while (!(line = fileManip->readLine()).isNull()) {
         listeOfQuestions.append(line);
+    }
 
     m_answer = listeOfQuestions.at(0).section(':', -1);
     m_currentQuestion = listeOfQuestions.at(0).section(':', 0, 0);
@@ -130,13 +141,14 @@ void UserInterface::openQuestionFile() {
     // QMessageBox::information(this,"Fichier",fileManip.readLine());
 }
 
-void UserInterface::createDefaultBottomDockWidget() {
-    QDockWidget *dockWidget = new QDockWidget(this);
-    QWidget *mainWidget = new QWidget;
-    QHBoxLayout *mainLayout = new QHBoxLayout;
-    QPushButton *next = new QPushButton(tr("Next"));
+void LMMainUi::createDefaultBottomDockWidget()
+{
+    QDockWidget* dockWidget = new QDockWidget(this);
+    QWidget* mainWidget = new QWidget;
+    QHBoxLayout* mainLayout = new QHBoxLayout;
+    QPushButton* next = new QPushButton(tr("Next"));
     questionField = new QLineEdit(m_currentQuestion);
-    QPushButton *prev = new QPushButton(tr("Previous"));
+    QPushButton* prev = new QPushButton(tr("Previous"));
     questionField->setReadOnly(true);
     questionField->setStyleSheet("text-align:center");
     mainLayout->addWidget(prev);
@@ -152,7 +164,8 @@ void UserInterface::createDefaultBottomDockWidget() {
     connect(next, SIGNAL(clicked()), this, SLOT(nextQuestion()));
 }
 
-void UserInterface::prevQuestion() {
+void LMMainUi::prevQuestion()
+{
     if (currentIndex > 0) {
         QString question = listeOfQuestions.at(--currentIndex);
         m_answer = question.section(':', -1);
@@ -161,7 +174,8 @@ void UserInterface::prevQuestion() {
     }
 }
 
-void UserInterface::nextQuestion() {
+void LMMainUi::nextQuestion()
+{
     if (currentIndex < listeOfQuestions.size() - 1) {
         QString question = listeOfQuestions.at(++currentIndex);
         m_answer = question.section(':', -1);
@@ -170,41 +184,50 @@ void UserInterface::nextQuestion() {
     }
 }
 
-void UserInterface::openAbout() {
+void LMMainUi::openAbout()
+{
     QString message = m_competitionName
                       + tr(" is a competition organised by ")
                       + m_OrgansationName
                       + ".";
-    if (!m_about.isEmpty())
+    if (!m_about.isEmpty()) {
         message += tr(" It consist to ") + m_about;
+    }
     QMessageBox::question(this, "About", message);
 }
 
-void UserInterface::openCredit() {
+void LMMainUi::openCredit()
+{
     QMessageBox::question(this, tr("Credit"), tr("Level Manager is a free software edited by \
                  Faouzi Mohamed"), QMessageBox::Ok);
 }
 
-void UserInterface::setListePlayers(QList<BoxContainer *> liste) {
-    for (int i = 0; i < liste.size(); ++i)
-        m_listePlayers.append(new BoxContainer(*(liste.at(i)), this));
+void LMMainUi::setListePlayers(QList<LMProfile*> liste)
+{
+    for (int i = 0; i < liste.size(); ++i) {
+        m_listePlayers.append(new LMProfile(*(liste.at(i)), this));
+    }
 }
 
-void UserInterface::setListePlayers(QVector<BoxContainer *> liste) {
-    for (int i = 0; i < liste.size(); ++i)
-        m_listePlayers.append(new BoxContainer(*(liste.at(i))));
+void LMMainUi::setListePlayers(QVector<LMProfile*> liste)
+{
+    for (int i = 0; i < liste.size(); ++i) {
+        m_listePlayers.append(new LMProfile(*(liste.at(i))));
+    }
 }
 
-QVector<BoxContainer *> UserInterface::listePlayers() { return m_listePlayers; }
+QVector<LMProfile*> LMMainUi::listePlayers() { return m_listePlayers; }
 
-void UserInterface::setPathToFile(QString const &path) {
-    if (path.isEmpty())
+void LMMainUi::setPathToFile(QString const &path)
+{
+    if (path.isEmpty()) {
         pathToFile = "../LevelManager/ecriture.txt";
-    else pathToFile = QString(path);
+    } else { pathToFile = QString(path); }
 }
 
 
-void UserInterface::setPathToFile(QFile *file) {
+void LMMainUi::setPathToFile(QFile* file)
+{
     if (questionFile == nullptr) {
         questionFile = new QFile(file->fileName());
     } else {
@@ -214,32 +237,37 @@ void UserInterface::setPathToFile(QFile *file) {
     pathToFile = questionFile->fileName();
 }
 
-QString UserInterface::currentQuestion() { return m_currentQuestion; }
+QString LMMainUi::currentQuestion() { return m_currentQuestion; }
 
-void UserInterface::addPlayer(BoxContainer *player) {
-    if (player == nullptr)
-        player = new BoxContainer(tr("No_Named"), tr(""), tr("Player1"),
-                                  tr("Player2"), this);
+void LMMainUi::addPlayer(LMProfile* player)
+{
+    if (player == nullptr) {
+        player = new LMProfile(tr("No_Named"), tr(""), tr("Player1"),
+                               tr("Player2"), this);
+    }
     //player->setParent(this);
     centralHLayout->addWidget(player);
 }
 
-void UserInterface::setAbout(QString about) { m_about = about; }
+void LMMainUi::setAbout(QString about) { m_about = about; }
 
 void
-UserInterface::setCompetitionName(QString name) { m_competitionName = name; }
+LMMainUi::setCompetitionName(QString name) { m_competitionName = name; }
 
 void
-UserInterface::setOrganisationName(QString name) { m_OrgansationName = name; }
+LMMainUi::setOrganisationName(QString name) { m_OrgansationName = name; }
 
-void UserInterface::hideMenuBar() {
-    if (ui->menubar->isHidden())
+void LMMainUi::hideMenuBar()
+{
+    if (ui->menubar->isHidden()) {
         ui->menubar->setVisible(true);
-    else
+    } else {
         ui->menubar->setHidden(true);
+    }
 }
 
-UserInterface::~UserInterface() {
+LMMainUi::~LMMainUi()
+{
     delete ui;
 }
 

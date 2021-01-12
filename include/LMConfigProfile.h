@@ -1,15 +1,18 @@
-#ifndef CONFIGUREPLAYER_H
-#define CONFIGUREPLAYER_H
+#ifndef LMCONFIGPROFILE_H
+#define LMCONFIGPROFILE_H
 
-#include "BoxContainer.h"
-#include "ui_/ui_ConfigurePlayer.h"
+#include "LMProfile.h"
+#include "ui_/ui_LMConfigProfile.h"
 
 namespace Ui
 {
-    class ConfigurePlayer;
+    class LMConfigProfile;
 }
+class LMConfigProfile;
 
-class ConfigurePlayer: public QWidget
+using LMCP = LMConfigProfile;
+
+class LMConfigProfile: public QWidget
 {
   Q_OBJECT
   public slots:
@@ -18,14 +21,14 @@ class ConfigurePlayer: public QWidget
     void resetToDefault();
 
   public:
-    explicit ConfigurePlayer(QTabWidget* parent = nullptr, int index = -1);
-    BoxContainer* boxContainer();
-    ~ConfigurePlayer();
+    explicit LMConfigProfile(QTabWidget* parent = nullptr, int index = -1);
+    LMProfile* boxContainer();
+    ~LMConfigProfile();
 
   private:
-    BoxContainer* bx;
+    LMProfile* bx;
     QString pathToPic;
-    Ui::ConfigurePlayer* ui;
+    Ui::LMConfigProfile* ui;
     QTabWidget* m_tabParent;
     int m_index;
     QStringList bkpNamesForQuickEdit;
@@ -39,4 +42,4 @@ class ConfigurePlayer: public QWidget
     void clearLineEditField() const;
 };
 
-#endif // CONFIGUREPLAYER_H
+#endif // LMCONFIGPROFILE_H

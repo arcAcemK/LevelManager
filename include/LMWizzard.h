@@ -1,31 +1,31 @@
-#ifndef DIALOGADMIN_H
-#define DIALOGADMIN_H
+#ifndef LMWIZZARD_H
+#define LMWIZZARD_H
 
 #include <QDialog>
 #include <QtWidgets>
 #include <QtGui>
 #include <QtCore>
-#include "BoxContainer.h"
-#include "ConfigurePlayer.h"
-#include "UserInterface.h"
-#include "ui_/ui_DialogAdmin.h"
+#include "LMProfile.h"
+#include "LMConfigProfile.h"
+#include "LMMainUi.h"
+#include "ui_/ui_LMWizzard.h"
 #include "LMGlobal.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
 {
-    class DialogAdmin;
+    class LMWizzard;
 }
 QT_END_NAMESPACE
 
-class DialogAdmin: public QDialog
+class LMWizzard: public QDialog
 {
   Q_OBJECT
 
   public:
-    DialogAdmin(QWidget* parent = nullptr);
+    LMWizzard(QWidget* parent = nullptr);
 
-    ~DialogAdmin();
+    ~LMWizzard();
 
   signals:
     /*Signal emitted whenever a field is edited*/
@@ -40,11 +40,11 @@ class DialogAdmin: public QDialog
     void loadUserInterface();
 
   private:
-    Ui::DialogAdmin* ui;
+    Ui::LMWizzard* ui;
     QString pathToQstFile;
     QFile* questionFile;
     //QTextStream* fileManip;
-    QVector<BoxContainer*> m_boxContainer;
+    QVector<LMProfile*> m_boxContainer;
 
     void install_default_event_handler();
 
@@ -52,4 +52,4 @@ class DialogAdmin: public QDialog
     friend void LMG::setIcon(QLabel*, const QString &, QSize);
 };
 
-#endif // DIALOGADMIN_H
+#endif // LMWIZZARD_H

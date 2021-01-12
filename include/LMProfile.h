@@ -1,7 +1,7 @@
-#ifndef BOXCONTAINER_H
-#define BOXCONTAINER_H
+#ifndef LMPROFILE_H
+#define LMPROFILE_H
 
-#include "ui_/ui_BoxContainer.h"
+#include "ui_/ui_LMProfile.h"
 #include <QString>
 #include <QtCore>
 #include <QtGui>
@@ -11,11 +11,11 @@
 QT_BEGIN_NAMESPACE
 namespace Ui
 {
-    class BoxContainer;
+    class LMProfile;
 }
 QT_END_NAMESPACE
 
-class BoxContainer: public QWidget
+class LMProfile: public QWidget
 {
   Q_OBJECT
   public slots:
@@ -27,14 +27,14 @@ class BoxContainer: public QWidget
     void changeIncrement(int increment);
 
   public:
-    explicit BoxContainer(const QString &groupName = ""
-                          , const QString &picture = ""
-                          , const QString &namePlayer1 = ""
-                          , const QString &namePlayer2 = ""
-                          , QWidget* parent = nullptr);
+    explicit LMProfile(const QString &groupName = ""
+                       , const QString &picture = ""
+                       , const QString &namePlayer1 = ""
+                       , const QString &namePlayer2 = ""
+                       , QWidget* parent = nullptr);
 
-    explicit BoxContainer(BoxContainer const &box, QWidget* parent = nullptr);
-    ~BoxContainer();
+    explicit LMProfile(LMProfile const &box, QWidget* parent = nullptr);
+    ~LMProfile();
     QLabel* groupLabel() const;
     QLabel* player1Label() const;
     QLabel* player2Label() const;
@@ -48,9 +48,9 @@ class BoxContainer: public QWidget
     QString groupPicture() const;
     static QString defaultGroupPic();
   private:
-    Ui::BoxContainer* ui;
+    Ui::LMProfile* ui;
     QString picturePath;
     friend void LMG::setIcon(QLabel*, const QString &, QSize);
 };
 
-#endif // BOXCONTAINER_H
+#endif // LMPROFILE_H

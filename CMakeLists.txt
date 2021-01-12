@@ -15,28 +15,28 @@ find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
 
 set(PROJECT_CPP
-        src/BoxContainer.cpp
-        src/ConfigurePlayer.cpp
-        src/DialogAdmin.cpp
-        src/UserInterface.cpp
+        src/LMProfile.cpp
+        src/LMConfigProfile.cpp
+        src/LMWizzard.cpp
+        src/LMMainUi.cpp
         src/LMGlobal.cpp
         main.cpp
         )
 
 
 set(PROJECT_HEADERS
-        include/BoxContainer.h
-        include/ConfigurePlayer.h
-        include/DialogAdmin.h
-        include/UserInterface.h
+        include/LMProfile.h
+        include/LMConfigProfile.h
+        include/LMWizzard.h
+        include/LMMainUi.h
         include/LMGlobal.h
         )
 
 set(PROJECT_UI
-        include/ui_/UserInterface.ui
-        include/ui_/BoxContainer.ui
-        include/ui_/ConfigurePlayer.ui
-        include/ui_/DialogAdmin.ui
+        include/ui_/LMMainUi.ui
+        include/ui_/LMProfile.ui
+        include/ui_/LMConfigProfile.ui
+        include/ui_/LMWizzard.ui
         )
 
 set(PROJECT_RESOURCES

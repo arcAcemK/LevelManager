@@ -1,8 +1,8 @@
-#include "../include/DialogAdmin.h"
+#include "../include/LMWizzard.h"
 
-DialogAdmin::DialogAdmin(QWidget* parent)
+LMWizzard::LMWizzard(QWidget* parent)
         : QDialog(parent),
-          ui(new Ui::DialogAdmin),
+          ui(new Ui::LMWizzard),
           questionFile(nullptr)
 {
     ui->setupUi(this);
@@ -16,21 +16,21 @@ DialogAdmin::DialogAdmin(QWidget* parent)
     ui->cancelBtn->setIcon(QIcon(":/cancel.svg"));
 }
 
-void DialogAdmin::install_default_event_handler()
+void LMWizzard::install_default_event_handler()
 {
     for (auto field: {ui->organiserField, ui->competField}) {
         connect(field, &QLineEdit::textChanged,
                 [this](const QString &) { emit fieldsChanged(); });
     }
     connect(ui->openFilebutton, &QToolButton::clicked,
-            this, &DialogAdmin::get_qstFile);
+            this, &LMWizzard::get_qstFile);
     connect(ui->nextBtn, SIGNAL(clicked()), this, SLOT(passNext()));
     connect(ui->resetBtn, SIGNAL(clicked()), this, SLOT(resetEveryField()));
-    connect(this, &DialogAdmin::fieldsChanged,
-            this, &DialogAdmin::handle_fieldsChanged);
+    connect(this, &LMWizzard::fieldsChanged,
+            this, &LMWizzard::handle_fieldsChanged);
 }
 
-void DialogAdmin::resetEveryField()
+void LMWizzard::resetEveryField()
 {
     ui->organiserField->clear();
     ui->competField->clear();
@@ -40,7 +40,7 @@ void DialogAdmin::resetEveryField()
     emit fieldsChanged();
 }
 
-void DialogAdmin::handle_fieldsChanged()
+void LMWizzard::handle_fieldsChanged()
 {
     if ((!pathToQstFile.isEmpty()) &&
         (!ui->organiserField->text().isEmpty()) &&
@@ -54,7 +54,7 @@ void DialogAdmin::handle_fieldsChanged()
     }
 }
 
-void DialogAdmin::setFile(const QString &path_to_file)
+void LMWizzard::setFile(const QString &path_to_file)
 {
     this->pathToQstFile = path_to_file;
     /* Get the base name of the file.
@@ -64,7 +64,7 @@ void DialogAdmin::setFile(const QString &path_to_file)
     emit fieldsChanged();
 }
 
-void DialogAdmin::get_qstFile()
+void LMWizzard::get_qstFile()
 {
     auto caption = tr("Select a file containing questions");
     auto filter = tr("File") + "(*.txt *.qst *.c *.cpp)";
@@ -80,14 +80,14 @@ void DialogAdmin::get_qstFile()
     }
 }
 
-void DialogAdmin::passNext()
+void LMWizzard::passNext()
 {
     prepareNextStep();
 
     /*configureTab: Inner TabWidget*/
     auto* configureTab = new QTabWidget;
     for (int i = 0; i < ui->numGroupField->value(); ++i) {
-        auto* cfg = new ConfigurePlayer(configureTab, i);
+        auto* cfg = new LMConfigProfile(configureTab, i);
         m_boxContainer.append(cfg->boxContainer());
         configureTab->addTab(cfg, "Group " + QString::number(i + 1));
     }
@@ -101,7 +101,7 @@ void DialogAdmin::passNext()
     setMaximumSize(size());
 }
 
-void DialogAdmin::prepareNextStep()
+void LMWizzard::prepareNextStep()
 {
     for (int i = 0; i < 2; ++i) {
         auto tab = ui->tabContainer->widget(0);
@@ -115,9 +115,9 @@ void DialogAdmin::prepareNextStep()
     connect(ui->nextBtn, SIGNAL(clicked()), this, SLOT(loadUserInterface()));
 }
 
-void DialogAdmin::loadUserInterface()
+void LMWizzard::loadUserInterface()
 {
-    auto* mainInterface = new UserInterface(this->m_boxContainer);
+    auto* mainInterface = new LMMainUi(this->m_boxContainer);
     //mainInterface->setPathToFile(questionFile);
     mainInterface->setPathToFile(pathToQstFile);
     mainInterface->showFullScreen();
@@ -125,7 +125,7 @@ void DialogAdmin::loadUserInterface()
 }
 
 
-DialogAdmin::~DialogAdmin()
+LMWizzard::~LMWizzard()
 {
     delete ui;
 }

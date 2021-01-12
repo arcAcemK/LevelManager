@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+    <author>Faouzi Mohamed</author>
+    <class>LMWizzard</class>
+    <widget class="QDialog" name="LMWizzard">
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>603</width>
+                <height>519</height>
+            </rect>
+        </property>
+        <property name="minimumSize">
+            <size>
+                <width>581</width>
+                <height>496</height>
+            </size>
+        </property>
+        <property name="maximumSize">
+            <size>
+                <width>775</width>
+                <height>531</height>
+            </size>
+        </property>
+        <property name="baseSize">
+            <size>
+                <width>610</width>
+                <height>525</height>
+            </size>
+        </property>
+        <property name="windowTitle">
+            <string>ACEM competitor</string>
+        </property>
+        <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="autoFillBackground">
+            <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+            <string notr="true">QDialog#LMWizzard,
+                QTabWidget&gt;QWidget
+                {
+                background-color:#253;
+                background-color:#dee;
+
+                border-top:none;
+                border-radius:0px 0px 5px 5px;
+                }
+
+                QTabBar{
+
+                }
+
+                /*
+                QPushButton
+                {
+                background-color:qlineargradient( x1:0.1, y1:0.4, x2:0.3,
+                y2:0.9,
+                stop: 0.1 rgb(119, 236, 149),
+                stop:0.4 rgb(152, 255, 124),
+                stop:1 rgb(207, 255, 174));
+                border:1px solid rgb(143, 172, 175);
+                border-radius:2;
+                }*/
+
+                QPushButton
+                {
+                background-color:qlineargradient( x1:0.3, y1:0.3, x2:0.1,
+                y2:0.99,
+                stop: 0.1 rgb(100, 199, 154),
+                stop:0.4 rgb(90, 195, 75),
+                stop:1 rgb(207, 255, 174));
+                border:1px solid rgb(143, 172, 175);
+                border-radius:0;
+                }
+
+                QPushButton#cancelBtn:hover,
+                #resetButton{
+                background-color:qlineargradient( x1:0.1, y1:0.4, x2:0.3,
+                y2:0.9,
+                stop: 0.1 rgb(199, 99, 109),
+                stop:0.4 rgb(209, 21, 99),
+                stop:1 rgb(214, 115, 154));
+                }
+
+                QPushButton:hover,
+                #resetButton:hover
+                {
+                background-color:qlineargradient( x1:0.1, y1:0.5, x2:1, y2:0.9,
+                stop:0 rgb(242, 199, 161),
+                stop:0.5 rgb(209, 115, 55),
+                stop:1 rgb(234, 255, 255));
+                }
+
+
+                #nextBtn,
+                #cancelBtn,
+                #resetBtn
+                {
+                padding:7px 20px;
+                max-height:30px;
+                min-height:30px;
+                font-size:10px;
+                border: 1px solid rgb(136, 136, 131);
+                }
+
+                #cancelBtn,
+                #resetBtn
+                {
+                font-weight:bold;
+                }
+
+                QCommandLinkButton#nextBtn
+                {
+                border: 1px solid rgb(0, 136, 131);
+                background-color:#afd;
+                }
+
+                QCommandLinkButton#nextBtn:hover
+                {
+                background-color:lightgreen;
+                }
+
+
+                QPushButton#resetBtn:hover
+                {
+                background-color:#fa2;
+                }
+
+                QPushButton#resetButton:pressed,
+                QPushButton#nextBtn:pressed,
+                QPushButton#cancelBtn:pressed,
+                QPushButton#resetBtn:pressed
+                {
+                background-color:qlineargradient( x1:0.1, y1:0.4, x2:0.3,
+                y2:0.9,
+                stop: 0.1 rgb(219, 126, 109),
+                stop:0.4 rgb(202, 115, 54),
+                stop:1 rgb(182, 115, 194));
+                border:1px solid rgb(143, 172, 175);
+                }
+
+                QLineEdit
+                {
+                border:1px solid gray;
+                border-radius:6px;
+                padding:4px 2px 4px 2px;
+                }
+
+                QWidget{
+                background-color : white;
+                }
+
+                QLabel{
+                font-size:110%;
+                }
+
+                QLabel#required_label{
+                font-style:italic;
+                color: red;
+                }
+
+                QToolButton#openFilebutton
+                {
+                background-color:lightYellow;
+                border-radius:3px ;
+                border:1px solid darkgray;
+                }
+
+                QToolButton:hover#openFilebutton
+                {
+                background-color:#ff9;
+                }
+            </string>
+        </property>
+        <property name="sizeGripEnabled">
+            <bool>false</bool>
+        </property>
+        <property name="modal">
+            <bool>false</bool>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+                <widget class="QTabWidget" name="tabContainer">
+                    <property name="enabled">
+                        <bool>true</bool>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>0</width>
+                            <height>0</height>
+                        </size>
+                    </property>
+                    <property name="maximumSize">
+                        <size>
+                            <width>16777215</width>
+                            <height>16777215</height>
+                        </size>
+                    </property>
+                    <property name="layoutDirection">
+                        <enum>Qt::LeftToRight</enum>
+                    </property>
+                    <property name="styleSheet">
+                        <string notr="true"/>
+                    </property>
+                    <property name="currentIndex">
+                        <number>0</number>
+                    </property>
+                    <widget class="QWidget" name="tab1">
+                        <property name="styleSheet">
+                            <string notr="true"/>
+                        </property>
+                        <attribute name="title">
+                            <string>Setup</string>
+                        </attribute>
+                        <layout class="QFormLayout" name="formLayout">
+                            <item row="0" column="0">
+                                <widget class="QLabel" name="organiser">
+                                    <property name="maximumSize">
+                                        <size>
+                                            <width>16777215</width>
+                                            <height>16777215</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+                                            style=&quot; font-size:10pt;
+                                            font-weight:600;&quot;&gt;&amp;amp;Organiser
+                                            &lt;/span&gt;&lt;span style=&quot;
+                                            font-size:10pt; font-weight:600;
+                                            color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                        </string>
+                                    </property>
+                                    <property name="buddy">
+                                        <cstring>organiserField</cstring>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="0" column="1">
+                                <widget class="QLineEdit" name="organiserField">
+                                    <property name="maximumSize">
+                                        <size>
+                                            <width>16777215</width>
+                                            <height>16777215</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string>Academic research Club</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="1" column="0">
+                                <widget class="QLabel" name="compet">
+                                    <property name="maximumSize">
+                                        <size>
+                                            <width>16777215</width>
+                                            <height>16777215</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+                                            style=&quot; font-size:10pt;
+                                            font-weight:600;&quot;&gt;&amp;amp;Competition's
+                                            name&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                        </string>
+                                    </property>
+                                    <property name="buddy">
+                                        <cstring>competField</cstring>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="1" column="1">
+                                <widget class="QLineEdit" name="competField">
+                                    <property name="maximumSize">
+                                        <size>
+                                            <width>16777215</width>
+                                            <height>16777215</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string>Génie en herbe</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="2" column="0">
+                                <widget class="QLabel" name="numGroup">
+                                    <property name="maximumSize">
+                                        <size>
+                                            <width>16777215</width>
+                                            <height>16777215</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+                                            style=&quot; font-size:10pt;
+                                            font-weight:600;&quot;&gt;&amp;amp;Number
+                                            of groups&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                        </string>
+                                    </property>
+                                    <property name="buddy">
+                                        <cstring>numGroupField</cstring>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="2" column="1">
+                                <widget class="QSpinBox" name="numGroupField">
+                                    <property name="maximumSize">
+                                        <size>
+                                            <width>50</width>
+                                            <height>16777215</height>
+                                        </size>
+                                    </property>
+                                    <property name="minimum">
+                                        <number>2</number>
+                                    </property>
+                                    <property name="value">
+                                        <number>4</number>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="3" column="0">
+                                <widget class="QLabel" name="label">
+                                    <property name="text">
+                                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+                                            style=&quot; font-size:10pt;
+                                            font-weight:600;&quot;&gt;Load &amp;amp;questions's
+                                            file &lt;/span&gt;&lt;span style=&quot;
+                                            font-size:10pt; font-weight:600;
+                                            color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                        </string>
+                                    </property>
+                                    <property name="buddy">
+                                        <cstring>openFilebutton</cstring>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="3" column="1">
+                                <widget class="QToolButton"
+                                        name="openFilebutton">
+                                    <property name="styleSheet">
+                                        <string notr="true"/>
+                                    </property>
+                                    <property name="text">
+                                        <string>...</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="4" column="0" colspan="2">
+                                <widget class="QWidget" name="widget"
+                                        native="true">
+                                    <layout class="QHBoxLayout"
+                                            name="horizontalLayout">
+                                        <item>
+                                            <widget class="QLabel"
+                                                    name="acemLabel">
+                                                <property name="minimumSize">
+                                                    <size>
+                                                        <width>250</width>
+                                                        <height>250</height>
+                                                    </size>
+                                                </property>
+                                                <property name="maximumSize">
+                                                    <size>
+                                                        <width>16777215</width>
+                                                        <height>16777215
+                                                        </height>
+                                                    </size>
+                                                </property>
+                                                <property name="text">
+                                                    <string>TextLabel</string>
+                                                </property>
+                                                <property name="alignment">
+                                                    <set>Qt::AlignCenter</set>
+                                                </property>
+                                            </widget>
+                                        </item>
+                                        <item>
+                                            <widget class="QLabel"
+                                                    name="craLabel">
+                                                <property name="minimumSize">
+                                                    <size>
+                                                        <width>0</width>
+                                                        <height>0</height>
+                                                    </size>
+                                                </property>
+                                                <property name="maximumSize">
+                                                    <size>
+                                                        <width>16777215</width>
+                                                        <height>16777215
+                                                        </height>
+                                                    </size>
+                                                </property>
+                                                <property
+                                                        name="layoutDirection">
+                                                    <enum>Qt::LeftToRight</enum>
+                                                </property>
+                                                <property name="text">
+                                                    <string>TextLabel</string>
+                                                </property>
+                                                <property name="scaledContents">
+                                                    <bool>false</bool>
+                                                </property>
+                                                <property name="alignment">
+                                                    <set>Qt::AlignCenter</set>
+                                                </property>
+                                            </widget>
+                                        </item>
+                                    </layout>
+                                </widget>
+                            </item>
+                        </layout>
+                    </widget>
+                    <widget class="QWidget" name="tab2">
+                        <attribute name="title">
+                            <string>About</string>
+                        </attribute>
+                        <layout class="QFormLayout" name="formLayout_2">
+                            <item row="0" column="0">
+                                <widget class="QLabel" name="aboutFieldLabel">
+                                    <property name="text">
+                                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+                                            style=&quot; font-size:10pt;
+                                            font-weight:600;&quot;&gt;&amp;amp;About&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                        </string>
+                                    </property>
+                                    <property name="buddy">
+                                        <cstring>aboutField</cstring>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="0" column="1">
+                                <widget class="QTextEdit" name="aboutField"/>
+                            </item>
+                        </layout>
+                    </widget>
+                </widget>
+            </item>
+            <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_3">
+                    <item>
+                        <widget class="QLabel" name="required_label">
+                            <property name="sizePolicy">
+                                <sizepolicy hsizetype="Preferred"
+                                            vsizetype="Maximum">
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="text">
+                                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;*
+                                    &lt;span style=&quot; color:#de0003;&quot;&gt;Required&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                </string>
+                            </property>
+                        </widget>
+                    </item>
+                    <item>
+                        <spacer name="horizontalSpacer">
+                            <property name="orientation">
+                                <enum>Qt::Horizontal</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                                <size>
+                                    <width>118</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                    </item>
+                    <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_2">
+                            <item>
+                                <widget class="QCommandLinkButton"
+                                        name="nextBtn">
+                                    <property name="sizePolicy">
+                                        <sizepolicy hsizetype="Preferred"
+                                                    vsizetype="Preferred">
+                                            <horstretch>0</horstretch>
+                                            <verstretch>0</verstretch>
+                                        </sizepolicy>
+                                    </property>
+                                    <property name="maximumSize">
+                                        <size>
+                                            <width>16777215</width>
+                                            <height>46</height>
+                                        </size>
+                                    </property>
+                                    <property name="layoutDirection">
+                                        <enum>Qt::LeftToRight</enum>
+                                    </property>
+                                    <property name="styleSheet">
+                                        <string notr="true"/>
+                                    </property>
+                                    <property name="text">
+                                        <string>&amp;Next</string>
+                                    </property>
+                                    <property name="default">
+                                        <bool>true</bool>
+                                    </property>
+                                    <property name="description">
+                                        <string>Configure teams</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item>
+                                <widget class="QPushButton" name="resetBtn">
+                                    <property name="sizePolicy">
+                                        <sizepolicy hsizetype="Preferred"
+                                                    vsizetype="Preferred">
+                                            <horstretch>0</horstretch>
+                                            <verstretch>0</verstretch>
+                                        </sizepolicy>
+                                    </property>
+                                    <property name="maximumSize">
+                                        <size>
+                                            <width>16777215</width>
+                                            <height>46</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string>&amp;Reset</string>
+                                    </property>
+                                    <property name="autoDefault">
+                                        <bool>false</bool>
+                                    </property>
+                                </widget>
+                            </item>
+                        </layout>
+                    </item>
+                    <item>
+                        <widget class="QPushButton" name="cancelBtn">
+                            <property name="sizePolicy">
+                                <sizepolicy hsizetype="Preferred"
+                                            vsizetype="Preferred">
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="maximumSize">
+                                <size>
+                                    <width>16777215</width>
+                                    <height>46</height>
+                                </size>
+                            </property>
+                            <property name="text">
+                                <string>&amp;Cancel</string>
+                            </property>
+                            <property name="autoDefault">
+                                <bool>false</bool>
+                            </property>
+                            <property name="default">
+                                <bool>false</bool>
+                            </property>
+                        </widget>
+                    </item>
+                </layout>
+            </item>
+        </layout>
+    </widget>
+    <resources/>
+    <connections>
+        <connection>
+            <sender>cancelBtn</sender>
+            <signal>clicked()</signal>
+            <receiver>LMWizzard</receiver>
+            <slot>close()</slot>
+            <hints>
+                <hint type="sourcelabel">
+                    <x>592</x>
+                    <y>508</y>
+                </hint>
+                <hint type="destinationlabel">
+                    <x>259</x>
+                    <y>465</y>
+                </hint>
+            </hints>
+        </connection>
+    </connections>
+    <slots>
+        <signal>controlButton(QString)</signal>
+    </slots>
+</ui>
