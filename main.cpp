@@ -1,11 +1,10 @@
-#include "include/DialogAdmin.h"
-#include "include/BoxContainer.h"
-#include "include/ConfigurePlayer.h"
+#include "include/LMWizzard.h"
+#include "include/LMProfile.h"
+#include "include/LMConfigProfile.h"
 #include <QApplication>
 
 int main(int argc, char* argv[])
 {
-
     QCoreApplication::setOrganizationName(
             QTranslator::tr("Academic Research Club"));
     QCoreApplication::setApplicationName(QTranslator::tr("Level Manager"));
@@ -13,25 +12,25 @@ int main(int argc, char* argv[])
 
     QApplication app(argc, argv);
 
-    BoxContainer b;
+    LMProfile b;
     //b.show();
 
-    ConfigurePlayer c;
+    LMConfigProfile c;
     //c.show();
 
-    DialogAdmin d;
-    d.show();
+    LMWizzard d;
+    //d.show();
 
-    BoxContainer l;
-    BoxContainer e;
-    BoxContainer f;
-    BoxContainer g;
-    QVector<BoxContainer*> lis;
+    LMProfile l;
+    LMProfile e;
+    LMProfile f;
+    LMProfile g;
+    QList<LMProfile*> lis;
     lis.append(&l);
     lis.append(&e);
     lis.append(&g);
     lis.append(&f);
-    UserInterface u(lis);
-    //u.show();
+    LMMainUi u(lis);
+    u.show();
     return app.exec();
 }

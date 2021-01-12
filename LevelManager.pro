@@ -13,22 +13,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    src/BoxContainer.cpp \
-    src/ConfigurePlayer.cpp \
-    src/DialogAdmin.cpp \
-    src/UserInterface.cpp
+    src/LMProfile.cpp \
+    src/LMConfigProfile.cpp \
+    src/LMWizzard.cpp \
+    src/LMMainUi.cpp
 
 HEADERS += \
-    include/BoxContainer.h \
-    include/ConfigurePlayer.h \
-    include/DialogAdmin.h \
-    include/UserInterface.h \
+    include/LMProfile.h \
+    include/LMConfigProfile.h \
+    include/LMWizzard.h \
+    include/LMMainUi.h \
 
 FORMS += \
-    include/ui_/BoxContainer.ui \
-    include/ui_/ConfigurePlayer.ui \
-    include/ui_/DialogAdmin.ui \
-    include/ui_/UserInterface.ui \
+    include/ui_/LMProfile.ui \
+    include/ui_/LMConfigProfile.ui \
+    include/ui_/LMWizzard.ui \
+    include/ui_/LMMainUi.ui \
 
 TRANSLATIONS += \
     assets/lang/LevelManager_fr_FR.ts\
