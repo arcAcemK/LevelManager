@@ -1,14 +1,16 @@
-#include "include/LMWizzard.h"
+#include "include/LMWizard.h"
 #include "include/LMProfile.h"
 #include "include/LMConfigProfile.h"
 #include <QApplication>
 
 int main(int argc, char* argv[])
 {
-    QCoreApplication::setOrganizationName(
-            QTranslator::tr("Academic Research Club"));
-    QCoreApplication::setApplicationName(QTranslator::tr("Level Manager"));
-    QCoreApplication::setApplicationVersion("0.1f");
+    auto org_name = QTranslator::tr("Academic Research Club of Kenitra");
+    auto app_name = QTranslator::tr("Level Manager");
+    auto app_version = QTranslator::tr("0.1f");
+    QCoreApplication::setOrganizationName(org_name);
+    QCoreApplication::setApplicationName(app_name);
+    QCoreApplication::setApplicationVersion(app_version);
 
     QApplication app(argc, argv);
 
@@ -18,7 +20,7 @@ int main(int argc, char* argv[])
     LMConfigProfile c;
     //c.show();
 
-    LMWizzard d;
+    LMWizard d;
     //d.show();
 
     LMProfile l;

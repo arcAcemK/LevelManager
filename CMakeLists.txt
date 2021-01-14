@@ -17,7 +17,7 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
 set(PROJECT_CPP
         src/LMProfile.cpp
         src/LMConfigProfile.cpp
-        src/LMWizzard.cpp
+        src/LMWizard.cpp
         src/LMMainUi.cpp
         src/LMGlobal.cpp
         main.cpp
@@ -27,7 +27,7 @@ set(PROJECT_CPP
 set(PROJECT_HEADERS
         include/LMProfile.h
         include/LMConfigProfile.h
-        include/LMWizzard.h
+        include/LMWizard.h
         include/LMMainUi.h
         include/LMGlobal.h
         )
@@ -36,7 +36,7 @@ set(PROJECT_UI
         include/ui_/LMMainUi.ui
         include/ui_/LMProfile.ui
         include/ui_/LMConfigProfile.ui
-        include/ui_/LMWizzard.ui
+        include/ui_/LMWizard.ui
         )
 
 set(PROJECT_RESOURCES
