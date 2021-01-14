@@ -18,6 +18,16 @@ QT_END_NAMESPACE
 class LMProfile: public QWidget
 {
   Q_OBJECT
+  public:
+    LMProfile(const QString &groupName = LMProfile::defaultGroupName()
+              , const QString &picture = LMProfile::defaultGroupPicture()
+              , const QString &namePlayer1 = LMProfile::defaultPlayer1Name()
+              , const QString &namePlayer2 = LMProfile::defaultPlayer2Name()
+              , QWidget* parent = nullptr);
+
+    explicit LMProfile(const LMProfile &box, QWidget* parent = nullptr);
+    ~LMProfile();
+
   public slots:
     void setGroupPicture(const QString &picture = "");
     void setDefaultPicture();
@@ -27,30 +37,29 @@ class LMProfile: public QWidget
     void changeIncrement(int increment);
 
   public:
-    explicit LMProfile(const QString &groupName = ""
-                       , const QString &picture = ""
-                       , const QString &namePlayer1 = ""
-                       , const QString &namePlayer2 = ""
-                       , QWidget* parent = nullptr);
-
-    explicit LMProfile(LMProfile const &box, QWidget* parent = nullptr);
-    ~LMProfile();
-    QLabel* groupLabel() const;
-    QLabel* player1Label() const;
-    QLabel* player2Label() const;
-    QString groupName() const;
-    void setPlayerName(const QString &name, int whichPlayer);
-    QString player1Name() const;
-    QString player2Name() const;
-    void setReward(int reward);
+    QLabel* groupLabel() const { return ui->groupName; }
+    QLabel* player1Label() const { return ui->player1; }
+    QLabel* player2Label() const { return ui->player2; }
+    QString groupName() const { return ui->groupName->text(); }
+    QString player1Name() const { return ui->player1->text(); }
+    QString player2Name() const { return ui->player2->text(); }
+    QString groupPicture() const { return picturePath; }
     QString reward() const;
-    QList<QLabel*> playersAndGroupName() const;
-    QString groupPicture() const;
-    static QString defaultGroupPic();
+
+    void setPlayerName(const QString &name, int whichPlayer);
+    void setReward(int reward);
+    QList<QLabel*> groupAndPlayers() const;
+
+    /*statics*/
+    static QString defaultGroupPicture() { return ":/defaultAvatar.svg"; }
+    static QString defaultGroupName() { return tr("Unnamed"); }
+    static QString defaultPlayer1Name() { return tr("Player1"); }
+    static QString defaultPlayer2Name() { return tr("Player2"); }
   private:
     Ui::LMProfile* ui;
     QString picturePath;
-    friend void LMG::setIcon(QLabel*, const QString &, QSize);
+    friend void LMG::set_QLabelIcon(QLabel* l, const QString &iconPath
+                                    , QSize iconSize);
 };
 
 #endif // LMPROFILE_H

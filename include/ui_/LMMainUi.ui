@@ -1,80 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
-    <class>LMMainUi</class>
-    <widget class="QMainWindow" name="LMMainUi">
-        <property name="geometry">
-            <rect>
-                <x>0</x>
-                <y>0</y>
-                <width>836</width>
-                <height>511</height>
-            </rect>
-        </property>
-        <property name="windowTitle">
-            <string>LMMainUi</string>
-        </property>
-        <property name="styleSheet">
-            <string notr="true">QLineEdit
+ <class>LMMainUi</class>
+ <widget class="QMainWindow" name="LMMainUi">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1155</width>
+    <height>494</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>LMMainUi</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QLineEdit
                 {
                 text-align:center;
                 }
             </string>
-        </property>
-        <widget class="QWidget" name="centralwidget"/>
-        <widget class="QMenuBar" name="menubar">
-            <property name="geometry">
-                <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>836</width>
-                    <height>20</height>
-                </rect>
-            </property>
-            <widget class="QMenu" name="menuTools">
-                <property name="title">
-                    <string>&amp;Tools</string>
-                </property>
-                <addaction name="action_fullscreen"/>
-                <addaction name="separator"/>
-                <addaction name="action_Exit"/>
-            </widget>
-            <widget class="QMenu" name="menu_Help">
-                <property name="title">
-                    <string>&amp;Help</string>
-                </property>
-                <addaction name="action_About"/>
-                <addaction name="action_Credits"/>
-            </widget>
-            <addaction name="menuTools"/>
-            <addaction name="menu_Help"/>
+  </property>
+  <property name="documentMode">
+   <bool>true</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QWidget" name="widget" native="true">
+      <layout class="QHBoxLayout" name="horizontalLayout_3"/>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="widget_2" native="true">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>100</height>
+       </size>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="prev">
+         <property name="text">
+          <string>Previous</string>
+         </property>
         </widget>
-        <widget class="QStatusBar" name="statusbar"/>
-        <action name="action_EnterFullScreen">
-            <property name="text">
-                <string>&amp;Open Full screen</string>
-            </property>
-        </action>
-        <action name="action_fullscreen">
-            <property name="text">
-                <string>Toggle &amp;fullscreen</string>
-            </property>
-        </action>
-        <action name="action_Exit">
-            <property name="text">
-                <string>E&amp;xit</string>
-            </property>
-        </action>
-        <action name="action_About">
-            <property name="text">
-                <string>&amp;About</string>
-            </property>
-        </action>
-        <action name="action_Credits">
-            <property name="text">
-                <string>&amp;Credits</string>
-            </property>
-        </action>
-    </widget>
-    <resources/>
-    <connections/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="questionField">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>35</height>
+          </size>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="next">
+         <property name="text">
+          <string>Next</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1155</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>&amp;Tools</string>
+    </property>
+    <addaction name="action_fullscreen"/>
+    <addaction name="separator"/>
+    <addaction name="action_Exit"/>
+   </widget>
+   <widget class="QMenu" name="menu_Help">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="action_About"/>
+    <addaction name="action_Credits"/>
+   </widget>
+   <addaction name="menuTools"/>
+   <addaction name="menu_Help"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_EnterFullScreen">
+   <property name="text">
+    <string>&amp;Open Full screen</string>
+   </property>
+  </action>
+  <action name="action_fullscreen">
+   <property name="text">
+    <string>Toggle &amp;fullscreen</string>
+   </property>
+  </action>
+  <action name="action_Exit">
+   <property name="text">
+    <string>E&amp;xit</string>
+   </property>
+  </action>
+  <action name="action_About">
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+  </action>
+  <action name="action_Credits">
+   <property name="text">
+    <string>&amp;Credits</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
 </ui>

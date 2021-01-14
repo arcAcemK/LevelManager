@@ -1,23 +1,17 @@
 #include "../include/LMConfigProfile.h"
 
-LMCP::LMConfigProfile(QTabWidget
-* parent,
-int index
-)
-:
-QWidget (parent),
-ui(new Ui::LMConfigProfile),
-m_tabParent(parent),
-m_index(index),
-bx(new LMProfile(
-        tr("Unnamed"),
-        LMProfile::defaultGroupPic(),
-        tr("Player1"),
-        tr("Player2"))
-  )
+LMConfigProfile::LMConfigProfile(QTabWidget* parent, int index)
+        : QWidget(parent)
+          , ui(new Ui::LMConfigProfile)
+          , m_tabParent(parent)
+          , m_index(index)
+          , pr(new LMProfile(LMProfile::defaultGroupName()
+                             , LMProfile::defaultGroupPicture()
+                             , LMProfile::defaultPlayer1Name()
+                             , LMProfile::defaultPlayer2Name()))
 {
     auto* layout = new QVBoxLayout;
-    layout->addWidget(bx);
+    layout->addWidget(pr);
     this->setLayout(layout);
     ui->setupUi(this);
 
@@ -41,9 +35,9 @@ void LMCP::setUp_lineEdit_Added()
 
 void LMCP::backupLabelValues()
 {
-    bkpNamesForQuickEdit.append(boxContainer()->groupName());
-    bkpNamesForQuickEdit.append(boxContainer()->player1Name());
-    bkpNamesForQuickEdit.append(boxContainer()->player1Name());
+    bkpNamesForQuickEdit.append(profile()->groupName());
+    bkpNamesForQuickEdit.append(profile()->player1Name());
+    bkpNamesForQuickEdit.append(profile()->player2Name());
 }
 
 void LMCP::setupAddedButton()
@@ -53,6 +47,7 @@ void LMCP::setupAddedButton()
     ui->saveBtn->setIcon(QIcon(":/save.svg"));
     ui->selectPictBtn->setIcon(QIcon(":/picture.svg"));
     ui->resetButton->setIcon(QIcon(":/reset.svg"));
+
     for (QPushButton* btn: {ui->saveBtn, ui->discardBtn}) {
         btn->setCursor(Qt::PointingHandCursor);
     }
@@ -78,16 +73,13 @@ void LMCP::setupAddedButton()
         ui->discardBtn->setEnabled(false);
     });
 
-    connect(ui->selectPictBtn, &QPushButton::clicked,
-            [this]() {
-                pathToPic = (
-                        QFileDialog::getOpenFileName(this,
-                                                     tr("Select a picture"),
-                                                     "",
-                                                     tr("Picture") +
-                                                     "(*.png *.gif *.jpg)"));
-                setPicture(pathToPic);
-            });
+    connect(ui->selectPictBtn, &QPushButton::clicked, [this]() {
+        auto caption = tr("Select a picture");
+        auto dir = "";
+        auto filter = tr("Picture") + "(*.png *.gif *.jpg)";
+        picture_name = QFileDialog::getOpenFileName(this, caption, dir, filter);
+        setPicture(picture_name);
+    });
 
     connect_fieldsEditing(ui->groupNameEdit, 0);
     connect_fieldsEditing(ui->player1_Name, 1);
@@ -96,11 +88,9 @@ void LMCP::setupAddedButton()
 
 void LMCP::clearLineEditField() const
 {
-    for (auto lineEdit:
-            {ui->groupNameEdit,
-             ui->player1_Name,
-             ui->player2_Name}
-            ) { lineEdit->clear(); }
+    for (auto lineEdit:{ui->groupNameEdit
+                        , ui->player1_Name
+                        , ui->player2_Name}) { lineEdit->clear(); }
 }
 
 void LMCP::connect_fieldsEditing(QLineEdit* lineEdit, int index)
@@ -112,14 +102,12 @@ void LMCP::connect_fieldsEditing(QLineEdit* lineEdit, int index)
 
 void LMCP::handle_textEdited(QString const &newName, int index)
 {
-    if (bkpNamesForQuickEdit.isEmpty()) {
-        backupLabelValues();
-    }
+    if (bkpNamesForQuickEdit.isEmpty()) { backupLabelValues(); }
 
     if (index == 0) {
         setGroupName(newName);
     } else {
-        boxContainer()->setPlayerName(newName, index);
+        profile()->setPlayerName(newName, index);
     }
 
     for (auto btn: {ui->saveBtn, ui->discardBtn}) {
@@ -131,10 +119,10 @@ void LMCP::setGroupName(const QString &a_name)
 {
     if (a_name.isEmpty()) {
         setParentTabName(tr("Unnamed"));
-        boxContainer()->setGroupName(tr("Unnamed"));
+        profile()->setGroupName(tr("Unnamed"));
     } else {
         setParentTabName(a_name.toUpper());
-        boxContainer()->setGroupName(a_name.toUpper());
+        profile()->setGroupName(a_name.toUpper());
     }
 }
 
@@ -145,20 +133,18 @@ void LMCP::setParentTabName(QString const &a_groupName)
     }
 }
 
-void LMCP::setPicture(QString const &a_picture)
+void LMCP::setPicture(QString const &a_picture) const
 {
     if (!a_picture.isEmpty()) {
-        boxContainer()->setGroupPicture(a_picture);
+        profile()->setGroupPicture(a_picture);
     }
 }
-
-LMProfile* LMCP::boxContainer() { return bx; }
 
 LMCP::~LMConfigProfile() { delete ui; }
 
 void LMCP::resetToDefault()
 {
     clearLineEditField();
-    boxContainer()->setDefaultPicture();
+    profile()->setDefaultPicture();
     setGroupName(tr("Group %1").arg(m_index + 1));
 }

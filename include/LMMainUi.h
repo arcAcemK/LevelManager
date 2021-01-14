@@ -15,7 +15,6 @@ QT_END_NAMESPACE
 class LMMainUi;
 
 using VoidHandler = void (LMMainUi::*)();
-using Interface = LMMainUi;
 
 class LMMainUi: public QMainWindow
 {
@@ -25,52 +24,45 @@ class LMMainUi: public QMainWindow
     void openCredit();
     void prevQuestion();
     void nextQuestion();
-    void hideMenuBar();
-    void toggleFullscreen();
-    void quit() { close(); }; //needed in trap_QAction_triggeredSignal()
-
-  public:
-    explicit LMMainUi(QWidget* parent = nullptr);
-    explicit LMMainUi(QList<LMProfile*> listePlayers
-                      , QWidget* parent = nullptr);
-    explicit LMMainUi(QVector<LMProfile*> listePlayers
-                      , QWidget* parent = nullptr);
-    explicit LMMainUi(LMMainUi const &interf
-                      , QWidget* parent = nullptr);
-    ~LMMainUi();
-    void addPlayer(LMProfile* player = nullptr);
-    void setListePlayers(QList<LMProfile*> liste);
-    void setListePlayers(QVector<LMProfile*> liste);
-    void setAbout(QString);
-    void setCompetitionName(QString);
-    void setOrganisationName(QString);
-    QString currentQuestion();
-    QVector<LMProfile*> listePlayers();
-    void setPathToFile(const QString &path);
-    void setPathToFile(QFile*);
+    void toggle_menuBar_visibility();
+    void toggle_fullscreen();
+    void quit() { close(); }; //needed in handle_triggeredSignal()
 
   private:
+    LMMainUi(QWidget* parent = nullptr);
+
+  public:
+    LMMainUi(const QList<LMProfile*> &profiles, QWidget* parent = nullptr);
+    explicit LMMainUi(LMMainUi &main_ui, QWidget* parent = nullptr);
+    ~LMMainUi();
+
+    void addGroupProfile(LMProfile* a_profile = nullptr);
+    void setProfilesList(const QList<LMProfile*> &list);
+    void setAbout(const QString &);
+    void setCompetitionName(const QString &);
+    void setOrganisationName(const QString &);
+    const QString &currentQuestion();
+    const QList<LMProfile*> &profilesList();
+    void setPathToFile(const QString &path);
+    static QString defaultQstFile() { return ":/ecriture.txt"; }
+  private:
     Ui::LMMainUi* ui;
-    QHBoxLayout* centralHLayout;
-    QVector<LMProfile*> m_listePlayers;
+    QList<LMProfile*> m_profilesList;
     QString m_competitionName;
-    QString m_OrgansationName;
+    QString m_OrganisationName;
     QString m_about;
 
-    QVector<QString> listeOfQuestions;
-    QTextStream* fileManip;
-    QLineEdit* questionField;
+    QStringList questionList;
     QString m_currentQuestion;
     QString m_answer;
     int currentIndex;
-    QFile* questionFile;
     QString pathToFile;
 
     void handle_triggeredSignal(QAction* a, VoidHandler handler) const;
-    void createDefaultBottomDockWidget();
-    void createMenuBar();
-    void openQuestionFile();
-    // void createStatusBar();
+    void setup_questionsFields();
+    void setup_menuBar_event();
+    void open_questionFile();
+    void handle_sequenceKey_shortcut(Qt::Key seq, VoidHandler handler);
     Q_DISABLE_COPY(LMMainUi);
 };
 

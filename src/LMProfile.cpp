@@ -58,11 +58,11 @@ void LMProfile::setGroupPicture(const QString &picture)
 {
     auto pixSize = ui->groupPicture->size() * 10;
     if (picture.isEmpty()) {
-        picturePath = LMProfile::defaultGroupPic();
+        picturePath = LMProfile::defaultGroupPicture();
     } else {
         picturePath = picture;
     }
-    LMG::setIcon(ui->groupPicture, picturePath, pixSize);
+    LMG::set_QLabelIcon(ui->groupPicture, picturePath, pixSize);
 }
 
 void LMProfile::setDefaultPicture() { setGroupPicture(); }
@@ -79,25 +79,10 @@ void LMProfile::changeIncrement(int increment)
 
 QString LMProfile::reward() const { return ui->groupNote->text(); }
 
-QString LMProfile::groupName() const { return ui->groupName->text(); }
-
-QString LMProfile::player1Name() const { return ui->player1->text(); }
-
-QString LMProfile::player2Name() const { return ui->player2->text(); }
-
-QLabel* LMProfile::groupLabel() const { return ui->groupName; }
-
-QLabel* LMProfile::player1Label() const { return ui->player1; }
-
-QLabel* LMProfile::player2Label() const { return ui->player2; }
-
-QString LMProfile::groupPicture() const { return picturePath; }
-
 LMProfile::~LMProfile() { delete ui; }
 
-QList<QLabel*> LMProfile::playersAndGroupName() const
+QList<QLabel*> LMProfile::groupAndPlayers() const
 {
     return QList<QLabel*>({ui->groupName, ui->player1, ui->player2});
 }
 
-QString LMProfile::defaultGroupPic() { return ":/defaultAvatar.svg"; }

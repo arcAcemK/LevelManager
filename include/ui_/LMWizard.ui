@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
     <author>Faouzi Mohamed</author>
-    <class>LMWizzard</class>
-    <widget class="QDialog" name="LMWizzard">
+    <class>LMWizard</class>
+    <widget class="QDialog" name="LMWizard">
         <property name="geometry">
             <rect>
                 <x>0</x>
@@ -39,7 +39,7 @@
             <bool>false</bool>
         </property>
         <property name="styleSheet">
-            <string notr="true">QDialog#LMWizzard,
+            <string notr="true">QDialog#LMWizard,
                 QTabWidget&gt;QWidget
                 {
                 background-color:#253;
@@ -563,7 +563,7 @@
         <connection>
             <sender>cancelBtn</sender>
             <signal>clicked()</signal>
-            <receiver>LMWizzard</receiver>
+            <receiver>LMWizard</receiver>
             <slot>close()</slot>
             <hints>
                 <hint type="sourcelabel">

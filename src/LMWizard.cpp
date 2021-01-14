@@ -1,36 +1,34 @@
-#include "../include/LMWizzard.h"
+#include "../include/LMWizard.h"
 
-LMWizzard::LMWizzard(QWidget* parent)
-        : QDialog(parent),
-          ui(new Ui::LMWizzard),
-          questionFile(nullptr)
+LMWizard::LMWizard(QWidget* parent)
+        : QDialog(parent), ui(new Ui::LMWizard), questionFile(nullptr)
 {
     ui->setupUi(this);
     ui->required_label->setHidden(false);
     ui->nextBtn->setHidden(true);
     install_default_event_handler();
     auto iconSize = ui->craLabel->size() * 7;
-    LMG::setIcon(ui->craLabel, ":/cra_logo.png", iconSize);
-    LMG::setIcon(ui->acemLabel, ":/acem_logo.jpeg", iconSize);
+    LMG::set_QLabelIcon(ui->craLabel, ":/cra_logo.png", iconSize);
+    LMG::set_QLabelIcon(ui->acemLabel, ":/acem_logo.jpeg", iconSize);
     ui->resetBtn->setIcon(QIcon(":/reset.svg"));
     ui->cancelBtn->setIcon(QIcon(":/cancel.svg"));
 }
 
-void LMWizzard::install_default_event_handler()
+void LMWizard::install_default_event_handler()
 {
     for (auto field: {ui->organiserField, ui->competField}) {
-        connect(field, &QLineEdit::textChanged,
-                [this](const QString &) { emit fieldsChanged(); });
+        connect(field, &QLineEdit::textChanged, [this](
+                const QString &) { emit fieldsChanged(); });
     }
-    connect(ui->openFilebutton, &QToolButton::clicked,
-            this, &LMWizzard::get_qstFile);
+    connect(ui->openFilebutton, &QToolButton::clicked, this
+            , &LMWizard::get_qstFile);
     connect(ui->nextBtn, SIGNAL(clicked()), this, SLOT(passNext()));
     connect(ui->resetBtn, SIGNAL(clicked()), this, SLOT(resetEveryField()));
-    connect(this, &LMWizzard::fieldsChanged,
-            this, &LMWizzard::handle_fieldsChanged);
+    connect(this, &LMWizard::fieldsChanged, this
+            , &LMWizard::handle_fieldsChanged);
 }
 
-void LMWizzard::resetEveryField()
+void LMWizard::resetEveryField()
 {
     ui->organiserField->clear();
     ui->competField->clear();
@@ -40,7 +38,7 @@ void LMWizzard::resetEveryField()
     emit fieldsChanged();
 }
 
-void LMWizzard::handle_fieldsChanged()
+void LMWizard::handle_fieldsChanged()
 {
     if ((!pathToQstFile.isEmpty()) &&
         (!ui->organiserField->text().isEmpty()) &&
@@ -54,7 +52,7 @@ void LMWizzard::handle_fieldsChanged()
     }
 }
 
-void LMWizzard::setFile(const QString &path_to_file)
+void LMWizard::setFile(const QString &path_to_file)
 {
     this->pathToQstFile = path_to_file;
     /* Get the base name of the file.
@@ -64,7 +62,7 @@ void LMWizzard::setFile(const QString &path_to_file)
     emit fieldsChanged();
 }
 
-void LMWizzard::get_qstFile()
+void LMWizard::get_qstFile()
 {
     auto caption = tr("Select a file containing questions");
     auto filter = tr("File") + "(*.txt *.qst *.c *.cpp)";
@@ -80,16 +78,16 @@ void LMWizzard::get_qstFile()
     }
 }
 
-void LMWizzard::passNext()
+void LMWizard::passNext()
 {
     prepareNextStep();
 
     /*configureTab: Inner TabWidget*/
     auto* configureTab = new QTabWidget;
     for (int i = 0; i < ui->numGroupField->value(); ++i) {
-        auto* cfg = new LMConfigProfile(configureTab, i);
-        m_boxContainer.append(cfg->boxContainer());
-        configureTab->addTab(cfg, "Group " + QString::number(i + 1));
+        auto* configProfile = new LMConfigProfile(configureTab, i);
+        profiles.append(configProfile->profile());
+        configureTab->addTab(configProfile, "Group " + QString::number(i + 1));
     }
     configureTab->setTabPosition(QTabWidget::East);
 
@@ -101,7 +99,7 @@ void LMWizzard::passNext()
     setMaximumSize(size());
 }
 
-void LMWizzard::prepareNextStep()
+void LMWizard::prepareNextStep()
 {
     for (int i = 0; i < 2; ++i) {
         auto tab = ui->tabContainer->widget(0);
@@ -115,9 +113,9 @@ void LMWizzard::prepareNextStep()
     connect(ui->nextBtn, SIGNAL(clicked()), this, SLOT(loadUserInterface()));
 }
 
-void LMWizzard::loadUserInterface()
+void LMWizard::loadUserInterface()
 {
-    auto* mainInterface = new LMMainUi(this->m_boxContainer);
+    auto* mainInterface = new LMMainUi(this->profiles);
     //mainInterface->setPathToFile(questionFile);
     mainInterface->setPathToFile(pathToQstFile);
     mainInterface->showFullScreen();
@@ -125,7 +123,7 @@ void LMWizzard::loadUserInterface()
 }
 
 
-LMWizzard::~LMWizzard()
+LMWizard::~LMWizard()
 {
     delete ui;
 }

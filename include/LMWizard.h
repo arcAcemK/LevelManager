@@ -1,5 +1,5 @@
-#ifndef LMWIZZARD_H
-#define LMWIZZARD_H
+#ifndef LMWIZARD_H
+#define LMWIZARD_H
 
 #include <QDialog>
 #include <QtWidgets>
@@ -8,24 +8,24 @@
 #include "LMProfile.h"
 #include "LMConfigProfile.h"
 #include "LMMainUi.h"
-#include "ui_/ui_LMWizzard.h"
+#include "ui_/ui_LMWizard.h"
 #include "LMGlobal.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
 {
-    class LMWizzard;
+    class LMWizard;
 }
 QT_END_NAMESPACE
 
-class LMWizzard: public QDialog
+class LMWizard: public QDialog
 {
   Q_OBJECT
 
   public:
-    LMWizzard(QWidget* parent = nullptr);
+    LMWizard(QWidget* parent = nullptr);
 
-    ~LMWizzard();
+    ~LMWizard();
 
   signals:
     /*Signal emitted whenever a field is edited*/
@@ -40,16 +40,17 @@ class LMWizzard: public QDialog
     void loadUserInterface();
 
   private:
-    Ui::LMWizzard* ui;
+    Ui::LMWizard* ui;
     QString pathToQstFile;
     QFile* questionFile;
     //QTextStream* fileManip;
-    QVector<LMProfile*> m_boxContainer;
+    QList<LMProfile*> profiles;
 
     void install_default_event_handler();
 
     void prepareNextStep();
-    friend void LMG::setIcon(QLabel*, const QString &, QSize);
+    friend void LMG::set_QLabelIcon(QLabel* l, const QString &iconPath
+                                    , QSize iconSize);
 };
 
-#endif // LMWIZZARD_H
+#endif // LMWIZARD_H

@@ -10,7 +10,8 @@
 
 namespace LMGlobal
 {
-    void setIcon(QLabel* l, const QString &iconPath, QSize iconSize);
+    void set_QLabelIcon(QLabel* l, const QString &iconPath, QSize iconSize);
+    void set_QActionShortcut(QAction* action, Qt::Key seq);
 };
 namespace LMG = LMGlobal;
 
